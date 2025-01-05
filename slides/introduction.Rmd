@@ -38,10 +38,11 @@ knitr::opts_chunk$set(comment = "")
 ## Introduction
 
 - ####Introduce ourselves!
-- ####A little "visual" game!
+- ####A little "visual" game! (DO NOT CLICK on this link until told!!)
 https://docs.google.com/spreadsheets/d/1mLXwC6h6ZZRcP5jOtkONOiuJAOToL1vQ/edit?usp=sharing&ouid=108065892648156704610&rtpof=true&sd=true
 
---
+
+---
 
 ### What is Visual Analytics
 
@@ -89,25 +90,17 @@ knitr::kable(
 <img src = "https://clauswilke.com/dataviz/multi-panel_figures_files/figure-html/athletes-composite-good-1.png",  width = 30%, style = "position:absolute; top: 52%; left: 40%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
 
 ---
-## A Typical Lecture
-
-- ####Agenda
-- ####Attendance
-- ####Analytics in the News
-- ####Review of past OYOTs
-- ####Main Lecture with hands on work
-- ####Wrap up with next OYOTs
-
----
+class: middle, center
 ## Syllabus
 
-#### [Visual Analytics Syllabus](introduction_files/Fall2023_RT_BUA400_CourseSyllabus.pdf)
+#### [Visual Analytics Syllabus]
 
 ---
+class: middle, center
 
 ## Attendance
 
-#### [Attendance Sheet](https://docs.google.com/spreadsheets/d/1vq3NUorJ9A5W2zhn6Fz-hs8SVWFfa-HKPTVluJWLBS4/edit?usp=sharing)
+#### [Qwickly Attendance]
 
 ---
 
@@ -135,13 +128,8 @@ knitr::kable(
 [//]: # "segment ends here"
 
 ---
-class: middle, center
 
-## Analytics in the News
-
----
-
-## Do you have?
+## Do you have the latest versions of R and RStudio?
 
 - ####<img src = "introduction_files/R_logo.png", width = 5%></img>
 - ####<img src = "introduction_files/RStudio-Logo.svg", width = 10%></img>
@@ -152,6 +140,13 @@ class: middle, center
 
 ---
 
+## Check versions of R and RStudio:
+
+- Launch RStudio - RStudio Version: Go to Help --> About RStudio
+- Latest RStudio Version: 
+- Latest R Version: 4.4.2
+
+---
 ## Steps to test...
 
 Open a new empty Rmd file  
@@ -164,7 +159,7 @@ str(mtcars)
 ```
 
 ---
-####Plot of mpg against disp
+####Plot of mpg against disp: plot(mtcars$disp,mtcars$mpg)
 ```{R include=TRUE, echo=FALSE}
 plot(mtcars$disp,mtcars$mpg)
 ```
@@ -398,6 +393,24 @@ rnorm(5) # create 5 normal variates
 
 [//]: # "segment ends here"
 
+---
+
+##Formatting commands
+
+Links:
+
+.pull-left[
+**Input:**
+```
+[Link Text](https://google.com)
+```
+]
+
+--
+.pull-right[
+**Output:**
+[Google Search](https://google.com)
+]
 ---
 
 ## Further reading
