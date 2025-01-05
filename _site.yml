@@ -3,6 +3,7 @@ title: "BUA 400"
 description: |
   BUA 400 - Visual Analytics
 output_dir: "docs"
+site: rmarkdown::render_site
 theme: "theme.css"
 repository_url: https://github.com/rthomas2296/BUA400Lectures
 include: [".nojekyll"]
@@ -72,6 +73,3 @@ navbar:
           href: worksheets/visualizing-trends.Rmd
           
           
-
-
-output: distill::distill_article

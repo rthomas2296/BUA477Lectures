@@ -13,4 +13,4 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Website
-WebsitePath: docs
+WebsitePath: C:/Users/Roy/Dropbox/3iMobile/SU_Courses/BUA400_VisualAnalytics/BUA400_03_Jan25/BUA400Lectures
