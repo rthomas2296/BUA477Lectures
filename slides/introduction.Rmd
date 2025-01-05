@@ -27,10 +27,8 @@ knitr::opts_chunk$set(comment = "")
 - ####Typical Lecture
 - ####Syllabus
 - ####Attendance
-- ####Analytics in the News
 - ####Intro to Visual Analytics
 - ####R Markdown
-- ####OYOTs (On Your Own Tasks)
 
 
 ---
