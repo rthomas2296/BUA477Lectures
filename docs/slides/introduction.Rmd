@@ -19,22 +19,27 @@ options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = "")
 ```
 
-## Agenda By Roy5
+## Agenda For Day1
 
 --
 
 - ####Introduction
-- ####Typical Lecture
 - ####Syllabus
 - ####Attendance
 - ####Intro to Visual Analytics
 - ####R Markdown
+- ####Intro to ggplot
+
 
 
 ---
 
 
 ## Introduction
+
+- ####Introduce ourselves!
+- ####A little "visual" game!
+https://docs.google.com/spreadsheets/d/1mLXwC6h6ZZRcP5jOtkONOiuJAOToL1vQ/edit?usp=sharing&ouid=108065892648156704610&rtpof=true&sd=true
 
 --
 
