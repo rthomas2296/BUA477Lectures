@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-18
+### last updated: 2025-01-06
 ]
 
 ---
@@ -155,6 +155,11 @@ Data source: Box Office Mojo
 ## Dots are preferable if we want to truncate the axes
 
 .center.move-up-1em[
+
+```
+Warning: package 'gapminder' was built under R version 4.3.3
+```
+
 ![](introductionToGgplot_files/figure-html/Americas-life-expect-1.svg)&lt;!-- --&gt;
 ]
 
@@ -221,6 +226,16 @@ Data source: United States Census Bureau, 2016
 &lt;br&gt;
 
 .center[
+
+```
+Warning: The `legend.title.align` argument of `theme()` is deprecated as of ggplot2
+3.5.0.
+ℹ Please use theme(legend.title = element_text(hjust)) instead.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
+```
+
 ![](introductionToGgplot_files/figure-html/income-by-race-age-dodged-1.svg)&lt;!-- --&gt;
 ]
 
@@ -253,7 +268,7 @@ class: center middle
 
 .tiny-font[
 
-```r
+``` r
 # Data from Box Office Mojo for Dec. 22-24, 2017. 
 boxoffice &lt;- tibble(
   rank = 1:5,
@@ -283,7 +298,7 @@ boxoffice
 
 .small-font[
 
-```r
+``` r
 ggplot(boxoffice, aes(title, amount)) +
   geom_col()  # "col" stands for column
 ```
@@ -302,7 +317,7 @@ ggplot(boxoffice, aes(title, amount)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(boxoffice, aes(fct_reorder(title, amount), amount)) +
   geom_col()
 ```
@@ -318,7 +333,7 @@ ggplot(boxoffice, aes(fct_reorder(title, amount), amount)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(boxoffice, aes(fct_reorder(title, -amount), amount)) +
   geom_col() + 
   xlab(NULL) # remove x axis label
@@ -336,7 +351,7 @@ ggplot(boxoffice, aes(fct_reorder(title, -amount), amount)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(boxoffice, aes(amount, fct_reorder(title, amount))) +
   geom_col() +
   xlab("amount (in million USD)") +
@@ -364,8 +379,15 @@ background-size: 8%
 
 .small-font[
 
-```r
+``` r
 library(palmerpenguins)
+```
+
+```
+Warning: package 'palmerpenguins' was built under R version 4.3.3
+```
+
+``` r
 head(penguins)
 ```
 
@@ -393,7 +415,7 @@ Image credit: [Artwork by @allison_horst](https://github.com/allisonhorst/palmer
 
 .small-font[
 
-```r
+``` r
 ggplot(penguins, aes(y = species)) + # note: no x aesthetic defined
   geom_bar()
 ```
@@ -416,7 +438,7 @@ Option 1: Manually, using `fct_relevel()`
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(y = fct_relevel(species, "Chinstrap", "Gentoo", "Adelie"))) +
   geom_bar() +
   ylab(NULL)
@@ -435,7 +457,7 @@ Option 2: Using `fct_rev()` and `fct_infreq()` from the **forcats** package
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(y = fct_rev(fct_infreq(species)))) +
   geom_bar() +
   ylab(NULL)
@@ -453,7 +475,7 @@ ggplot(penguins, aes(y = fct_rev(fct_infreq(species)))) +
 
 .small-font[
 
-```r
+``` r
 ggplot(penguins, aes(sex, fill = species)) +
   geom_bar()
 ```
@@ -469,7 +491,7 @@ ggplot(penguins, aes(sex, fill = species)) +
 
 .tiny-font[
 
-```r
+``` r
 penguins_nomissing &lt;- na.omit(penguins) # remove all rows with any missing values
 
 ggplot(penguins_nomissing, aes(sex, fill = species)) +
@@ -489,7 +511,7 @@ ggplot(penguins_nomissing, aes(sex, fill = species)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(penguins_nomissing, aes(sex, fill = species)) +
   geom_bar(position = "dodge")
 ```
@@ -508,7 +530,7 @@ ggplot(penguins_nomissing, aes(sex, fill = species)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(penguins_nomissing, aes(sex, fill = species)) +
   geom_bar(position = "stack")
 ```
@@ -527,7 +549,7 @@ ggplot(penguins_nomissing, aes(sex, fill = species)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(penguins_nomissing, aes(sex, fill = species)) +
   geom_bar(position = "fill")
 ```

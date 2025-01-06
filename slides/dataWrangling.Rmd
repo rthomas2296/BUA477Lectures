@@ -25,24 +25,6 @@ theme_set(theme_gray(16))
 update_geom_defaults("point", list(size = 2))
 ```
 
-## Agenda
-
---
-
-- ####Attendance
-- ####Analytics in the News
-- ####Review of past OYOTs
-- ####Filter, select, arrange, count, mutate
-- ####The pipe symbol
-- ####OYOTs (On Your Own Tasks)
-
----
-
-##Review of past OYOTs
-
-- ####R and RStudio is up to date?
-- ####All packages installed?
-
 
 ---
 

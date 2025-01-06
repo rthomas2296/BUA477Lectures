@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-13
+### last updated: 2025-01-06
 ]
 
 ---
@@ -182,7 +182,7 @@ The `boxoffice` dataset:
 
 .tiny-font[
 
-```r
+``` r
 boxoffice &lt;- tibble(
   rank = 1:5,
   title = c("Star Wars", "Jumanji", "Pitch Perfect 3", "Greatest Showman", "Ferdinand"),
@@ -197,7 +197,7 @@ The `tx_counties` dataset:
 
 .tiny-font[
 
-```r
+``` r
 tx_counties &lt;- read_csv("https://wilkelab.org/SDS375/datasets/US_census.csv") %&gt;% 
   filter(state == "Texas") %&gt;%
   mutate(popratio = pop2010/median(pop2010)) %&gt;%
@@ -214,7 +214,7 @@ The `temperatures` dataset:
 
 .tiny-font[
 
-```r
+``` r
 temperatures &lt;- read_csv("https://wilkelab.org/SDS375/datasets/tempnormals.csv") %&gt;%
   mutate(
     location = factor(
@@ -233,7 +233,7 @@ Recall the box-office example from a prior lecture
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(boxoffice) +
   aes(amount, fct_reorder(title, amount)) +
   geom_col()
@@ -255,7 +255,7 @@ Add scale functions (no change in figure so far)
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(boxoffice) +
   aes(amount, fct_reorder(title, amount)) +
   geom_col() +
@@ -276,7 +276,7 @@ The parameter `name` sets the axis title
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(boxoffice) +
   aes(amount, fct_reorder(title, amount)) +
   geom_col() +
@@ -303,7 +303,7 @@ The parameter `limits` sets the scale limits
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(boxoffice) +
   aes(amount, fct_reorder(title, amount)) +
   geom_col() +
@@ -332,7 +332,7 @@ The parameter `breaks` sets the axis tick positions
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(boxoffice) +
   aes(amount, fct_reorder(title, amount)) +
   geom_col() +
@@ -359,7 +359,7 @@ The parameter `labels` sets the axis tick labels
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(boxoffice) +
   aes(amount, fct_reorder(title, amount)) +
   geom_col() +
@@ -387,7 +387,7 @@ The parameter `expand` sets the axis expansion
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(boxoffice) +
   aes(amount, fct_reorder(title, amount)) +
   geom_col() +
@@ -419,7 +419,7 @@ Linear y scale:
 
 .tiny-font[
 
-```r
+``` r
 ggplot(tx_counties) +
   aes(x = index, y = popratio) +
   geom_point() +
@@ -437,7 +437,7 @@ Log y scale:
 
 .tiny-font[
 
-```r
+``` r
 ggplot(tx_counties) +
   aes(x = index, y = popratio) +
   geom_point() +
@@ -455,7 +455,7 @@ ggplot(tx_counties) +
 
 .pull-left.nogap.tiny-font[
 
-```r
+``` r
 ggplot(tx_counties) +
   aes(x = index, y = popratio) +
   geom_point() +
@@ -471,7 +471,7 @@ ggplot(tx_counties) +
 
 .pull-right.nogap.tiny-font[
 
-```r
+``` r
 ggplot(tx_counties) +
   aes(x = index, y = popratio) +
   geom_point() +
@@ -493,7 +493,7 @@ ggplot(tx_counties) +
 
 .nogap.tiny-font[
 
-```r
+``` r
 ggplot(temperatures, aes(day_of_year, temperature, color = location)) +
   geom_line() +
 * coord_cartesian()  # cartesian coords are the default
@@ -510,7 +510,7 @@ ggplot(temperatures, aes(day_of_year, temperature, color = location)) +
 
 .nogap.tiny-font[
 
-```r
+``` r
 ggplot(temperatures, aes(day_of_year, temperature, color = location)) +
   geom_line() +
 * coord_polar()   # polar coords
@@ -527,7 +527,7 @@ ggplot(temperatures, aes(day_of_year, temperature, color = location)) +
 
 .nogap.tiny-font[
 
-```r
+``` r
 ggplot(temperatures, aes(day_of_year, temperature, color = location)) +
   geom_line() +
   coord_polar() + 

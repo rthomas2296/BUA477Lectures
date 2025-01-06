@@ -24,33 +24,6 @@ theme_set(theme_gray(16))
 update_geom_defaults("point", list(size = 2))
 ```
 
-## Agenda
-
---
-
-- ####Attendance
-- ####Analytics in the News
-- ####Review of past OYOTs (data manipulation verbs)
-- ####Data Exploration: Missing Values
-- ####Data Exploration: Outliers
-- ####OYOTs (On Your Own Tasks)
-
----
-
-##Attendance
-
----
-
-##Analytics in the News
-
----
-
-##Review of past OYOTs
-
-- ####Review of filter, select, arrange, count, mutate
-- ####Review of relocate, slice
-
----
 
 ## Data Manipulation on the StarWars dataset
 .tiny-font[

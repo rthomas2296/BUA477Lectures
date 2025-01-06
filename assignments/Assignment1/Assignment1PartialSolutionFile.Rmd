@@ -1,0 +1,55 @@
+---
+title: "Untitled"
+author: "Roy Thomas"
+date: "2025-01-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+
+# Count missing values in air_time
+missing_air_time <- flights %>%
+  summarise(
+    total_flights = n(),
+    missing_air_time = sum(is.na(air_time)),
+    percentage_missing = mean(is.na(air_time)) * 100
+  )
+
+missing_air_time
+
+```
+```{r}
+# Analyze rows with missing air_time.  Let us check those rows with 
+# missing air_time, and see if dep_time and arr_time are ALSO missing.
+# If they are, then those flights are possibly cancelled. 
+flights %>%
+  filter(is.na(air_time)) %>%
+  summarise(
+    total_flights_with_no_air_time = n(),
+    canceled_flights = sum(is.na(dep_time) & is.na(arr_time)),
+  )
+```
+```{r}
+avg_speed <- flights %>%
+  filter(!is.na(air_time) & !is.na(distance)) %>%
+  mutate(speed = distance / (air_time / 60)) %>%
+  summarise(avg_speed = mean(speed, na.rm = TRUE))
+
+flights_imputed <- flights %>%
+  mutate(
+    air_time = ifelse(
+      is.na(air_time) & !is.na(distance),
+      distance / avg_speed$avg_speed * 60,
+      air_time
+    )
+  )
+
+```
+
+
+
