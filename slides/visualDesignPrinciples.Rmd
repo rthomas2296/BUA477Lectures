@@ -87,7 +87,7 @@ class: center middle
 ## Types of Variables
 ---
 
-<img src = "visualDesignPrinciples_files/typesOfVariables.png", width = 90%, style = "position:relative"></img>
+<img src = "visualDesignPrinciples_files/TypesOfVariables.png", width = 90%, style = "position:relative"></img>
 
 ---
 class: center middle

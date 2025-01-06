@@ -392,7 +392,8 @@ ggplot(income_by_age, aes(x = race, y = median_income, fill = age)) +
   theme(
     axis.line.x = element_blank(),
     axis.ticks.x = element_blank(),
-    legend.title.align = 0.5
+    #legend.title.align = 0.5
+    legend.title = element_text(0.5)
   )
 ```
 ]

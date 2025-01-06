@@ -409,6 +409,17 @@ ggplot(boxoffice) +
 ]
 
 ---
+The expansion function 
+controls the padding or expansion of the axis limits beyond the range of the data.
+
+How expansion() Works
+The expansion() function in ggplot2 allows you to specify how much extra space is added to the axis limits. The mult argument specifies a proportional multiplier of the data range for padding.
+
+mult = c(0, 0.06):
+The first value (0) determines the padding at the lower end of the axis. In this case, no padding is added at the lower end (the axis starts exactly at the smallest value or the limit specified).
+The second value (0.06) determines the padding at the upper end of the axis. Here, 6% of the data range is added as padding above the highest value.
+
+---
 
 ## Scale functions define transformations
 
