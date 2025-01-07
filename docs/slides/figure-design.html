@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-10-02
+### last updated: 2025-01-07
 ]
 
 ---
@@ -65,7 +65,7 @@ Requires coordinated modification of multiple elements:
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps) +
   aes(x = mean_temp, y = month_long) +
   geom_density_ridges()
@@ -81,7 +81,7 @@ ggplot(lincoln_temps) +
 .tiny-font[
 You can download the dataset using this code:
 
-```r
+``` r
 lincoln_temps &lt;- readRDS(
   url("https://wilkelab.org/SDS375/datasets/lincoln_temps.rds")
 )
@@ -94,7 +94,7 @@ lincoln_temps &lt;- readRDS(
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps) +
   aes(x = mean_temp, y = month_long) +
   geom_density_ridges(
@@ -114,7 +114,7 @@ ggplot(lincoln_temps) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps) +
   aes(x = mean_temp, y = month_long) +
   geom_density_ridges(
@@ -135,7 +135,7 @@ ggplot(lincoln_temps) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps) +
   aes(x = mean_temp, y = month_long) +
   geom_density_ridges(
@@ -161,7 +161,7 @@ ggplot(lincoln_temps) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps) +
   aes(x = mean_temp, y = month_long) +
   geom_density_ridges(
@@ -190,7 +190,7 @@ ggplot(lincoln_temps) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps) +
   aes(x = mean_temp, y = month_long) +
   geom_density_ridges(
@@ -219,7 +219,7 @@ ggplot(lincoln_temps) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps) +
   aes(x = mean_temp, y = month_long) +
   geom_density_ridges(
@@ -251,7 +251,7 @@ ggplot(lincoln_temps) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps) +
   aes(x = mean_temp, y = month_long) +
   geom_density_ridges(
@@ -284,7 +284,7 @@ ggplot(lincoln_temps) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps) +
   aes(x = mean_temp, y = month_long) +
   geom_density_ridges(
@@ -327,7 +327,7 @@ class: center middle
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point()
   # default theme is theme_gray()
@@ -345,7 +345,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_gray()
@@ -363,7 +363,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_gray(14) # most themes take a font-size argument to scale text size
@@ -381,7 +381,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_bw(14)
@@ -399,7 +399,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_minimal(14)
@@ -417,7 +417,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_classic(14)
@@ -435,7 +435,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_half_open()  # from package cowplot
@@ -453,7 +453,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_minimal_grid()  # from package cowplot
@@ -471,7 +471,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_minimal_hgrid()  # from package cowplot
@@ -489,7 +489,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_minimal_vgrid()  # from package cowplot
@@ -508,7 +508,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_economist(14)       # from package ggthemes
@@ -527,7 +527,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_economist(14) + scale_color_economist() # from package ggthemes
@@ -545,7 +545,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
   geom_point() +
   theme_fivethirtyeight(14) + scale_color_fivethirtyeight() # from package ggthemes
@@ -563,7 +563,7 @@ ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -582,7 +582,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -611,7 +611,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -636,7 +636,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -661,7 +661,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -685,7 +685,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -715,7 +715,7 @@ The element `axis.text` has its own color set in the theme. Therefore it doesn't
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -741,7 +741,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -767,7 +767,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -793,7 +793,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -819,7 +819,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -845,7 +845,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -871,7 +871,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -894,7 +894,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -917,7 +917,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -940,7 +940,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -963,7 +963,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -987,7 +987,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +
@@ -1013,7 +1013,7 @@ ggplot(penguins) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(penguins) +
   aes(flipper_length_mm, body_mass_g) +
   geom_point(aes(color = species)) +

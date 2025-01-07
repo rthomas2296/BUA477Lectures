@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-10-04
+### last updated: 2025-01-07
 ]
 
 ---
@@ -94,7 +94,7 @@ class: center middle
 
 .tiny-font[
 
-```r
+``` r
 gdp_ranked %&gt;%
   filter(year &gt; 1985 &amp; year %% 5 == 0) %&gt;%
   ggplot(aes(gdp, rank)) +
@@ -113,7 +113,7 @@ gdp_ranked %&gt;%
 
 .tiny-font[
 
-```r
+``` r
 gdp_ranked %&gt;%
   # gganimate uses the `group` aesthetic to track objects across frames
   ggplot(aes(gdp, rank, group = country)) + 
@@ -133,7 +133,7 @@ gdp_ranked %&gt;%
 
 .tiny-font.pull-left.width-50[
 
-```r
+``` r
 gdp_ranked %&gt;%
   ggplot(aes(gdp, rank, group = country)) +
   geom_col(aes(fill = country)) +
@@ -165,7 +165,7 @@ gdp_ranked %&gt;%
 
 .tiny-font.pull-left.width-50[
 
-```r
+``` r
 selected &lt;- c("China", "Japan",
   "United States", "Germany", "Brazil")
 
@@ -197,7 +197,7 @@ gdp_ranked %&gt;%
 
 .tiny-font.pull-left.width-50[
 
-```r
+``` r
 gdp_ranked %&gt;%
   filter(country %in% selected) %&gt;%
   ggplot(aes(year, gdp, color = country)) +

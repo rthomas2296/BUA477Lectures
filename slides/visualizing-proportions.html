@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-25
+### last updated: 2025-01-07
 ]
 
 ---
@@ -337,7 +337,7 @@ We have three options:
 
 .pull-left.tiny-font[
 
-```r
+``` r
 # the data
 bundestag &lt;- tibble(
   party = c("CDU/CSU", "SPD", "FDP"),
@@ -363,7 +363,7 @@ bundestag
 
 .pull-left.tiny-font[
 
-```r
+``` r
 # the data
 bundestag &lt;- tibble(
   party = c("CDU/CSU", "SPD", "FDP"),
@@ -392,7 +392,7 @@ bundestag |&gt;
 
 .pull-left.tiny-font[
 
-```r
+``` r
 # the data
 bundestag &lt;- tibble(
   party = c("CDU/CSU", "SPD", "FDP"),
@@ -418,7 +418,7 @@ ggplot(bundestag) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 # the data
 bundestag &lt;- tibble(
   party = c("CDU/CSU", "SPD", "FDP"),
@@ -452,7 +452,7 @@ ggplot(bundestag) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 library(ggforce)
 
 ggplot(bundestag) +
@@ -477,7 +477,7 @@ ggplot(bundestag) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 library(ggforce)
 
 ggplot(bundestag) +
@@ -503,7 +503,7 @@ ggplot(bundestag) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 library(ggforce)
 
 ggplot(bundestag) +
@@ -531,7 +531,7 @@ ggplot(bundestag) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 library(ggforce)
 
 ggplot(bundestag) +
@@ -558,7 +558,7 @@ ggplot(bundestag) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 library(ggforce)
 
 ggplot(bundestag) +
@@ -585,7 +585,7 @@ ggplot(bundestag) +
 
 .tiny-font[
 
-```r
+``` r
 # prepare pie data
 pie_data &lt;- bundestag %&gt;%
   arrange(seats) # sort so pie slices end up sorted
@@ -610,7 +610,7 @@ pie_data
 
 .tiny-font[
 
-```r
+``` r
 # prepare pie data
 pie_data &lt;- bundestag %&gt;%
   arrange(seats) %&gt;% # sort so pie slices end up sorted
@@ -638,7 +638,7 @@ pie_data
 
 .tiny-font[
 
-```r
+``` r
 # prepare pie data
 pie_data &lt;- bundestag %&gt;%
   arrange(seats) %&gt;% # sort so pie slices end up sorted
@@ -666,7 +666,7 @@ pie_data
 
 .tiny-font[
 
-```r
+``` r
 # prepare pie data
 pie_data &lt;- bundestag %&gt;%
   arrange(seats) %&gt;% # sort so pie slices end up sorted
@@ -695,7 +695,7 @@ pie_data
 
 .tiny-font[
 
-```r
+``` r
 # prepare pie data
 pie_data &lt;- bundestag %&gt;%
   arrange(seats) %&gt;% # sort so pie slices end up sorted
@@ -727,7 +727,7 @@ pie_data
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(pie_data) +
   aes(
     x0 = 0, y0 = 0, r0 = 0, r = 1,
@@ -749,7 +749,7 @@ ggplot(pie_data) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(pie_data) +
   aes(
     x0 = 0, y0 = 0, r0 = 0, r = 1,
@@ -778,7 +778,7 @@ ggplot(pie_data) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(pie_data) +
   aes(
     x0 = 0, y0 = 0, r0 = 0, r = 1,
@@ -807,7 +807,7 @@ ggplot(pie_data) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(pie_data) +
   aes(
     x0 = 0, y0 = 0, r0 = 0, r = 1,
@@ -836,7 +836,7 @@ ggplot(pie_data) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(pie_data) +
   aes(
     x0 = 0, y0 = 0, r0 = 0, r = 1,
@@ -865,7 +865,7 @@ ggplot(pie_data) +
 
 .pull-left.xtiny-font[
 
-```r
+``` r
 ggplot(pie_data) +
   aes(
     x0 = 0, y0 = 0, r0 = 0, r = 1,
@@ -902,7 +902,7 @@ ggplot(pie_data) +
 
 .pull-left.xtiny-font[
 
-```r
+``` r
 ggplot(pie_data) +
   aes(
     x0 = 0, y0 = 0, r0 = 0, r = 1,
@@ -939,7 +939,7 @@ ggplot(pie_data) +
 
 .pull-left.xtiny-font[
 
-```r
+``` r
 ggplot(pie_data) +
   aes(
     x0 = 0, y0 = 0, r0 = 0.4, r = 1,

@@ -3,7 +3,7 @@
   <head>
     <title>Visualizing distributions 1</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Roy Thomas - Adapted from Claus Wilke course" />
+    <meta name="author" content="Roy Thomas" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="Wilke-slides-theme.css" type="text/css" />
@@ -16,10 +16,10 @@ class: center, middle, title-slide
 # Visualizing distributions 1
 ]
 .author[
-### Roy Thomas - Adapted from Claus Wilke course
+### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-20
+### last updated: 2025-01-07
 ]
 
 ---
@@ -447,6 +447,16 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 ## Careful: Are bars stacked or overlapping?
 
 .pull-left[
+
+```
+Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
+3.5.0.
+ℹ Please use the `legend.position.inside` argument of `theme()` instead.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
+```
+
 ![](visualizingDistributions1_files/figure-html/titanic-age-hist-stacked-1.svg)&lt;!-- --&gt;
 Is the female bar over the male bar?
 ]
@@ -508,7 +518,7 @@ All examples will use the `titanic` dataset:
 
 .tiny-font[
 
-```r
+``` r
 titanic &lt;- read_csv("https://wilkelab.org/SDS375/datasets/titanic.csv") %&gt;%
   select(age, sex, class, survived)
 ```
@@ -521,7 +531,7 @@ titanic &lt;- read_csv("https://wilkelab.org/SDS375/datasets/titanic.csv") %&gt;
 
 .small-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_histogram()
 ```
@@ -544,7 +554,7 @@ ggplot(titanic, aes(age)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_histogram(binwidth = 5)
 ```
@@ -565,7 +575,7 @@ Do you like the bin placement?
 
 .small-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_histogram(
     binwidth = 5,  # width of the bins
@@ -585,7 +595,7 @@ ggplot(titanic, aes(age)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_histogram(
     binwidth = 5,  # width of the bins
@@ -605,7 +615,7 @@ ggplot(titanic, aes(age)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_density(fill = "skyblue")
 ```
@@ -623,7 +633,7 @@ ggplot(titanic, aes(age)) +
 
 .small-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_density() # without fill
 ```
@@ -640,7 +650,7 @@ ggplot(titanic, aes(age)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_density(
     fill = "skyblue",
@@ -660,7 +670,7 @@ ggplot(titanic, aes(age)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_density(
     fill = "skyblue",
@@ -688,7 +698,7 @@ class: center middle
 
 .tiny-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_density(
     stat = "density",    # the default for geom_density()
@@ -708,7 +718,7 @@ ggplot(titanic, aes(age)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_area(  # geom_area() does not normally use stat = "density"
     stat = "density",
@@ -727,7 +737,7 @@ ggplot(titanic, aes(age)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_line(  # neither does geom_line()
     stat = "density"
@@ -745,7 +755,7 @@ ggplot(titanic, aes(age)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   # we can use multiple geoms on top of each other
   geom_area(stat = "density", fill = "skyblue") +
@@ -763,7 +773,7 @@ ggplot(titanic, aes(age)) +
 
 .pull-left.tiny-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_line(stat = "density", bw = 3)
 ```
@@ -774,7 +784,7 @@ ggplot(titanic, aes(age)) +
 
 .pull-right.tiny-font[
 
-```r
+``` r
 ggplot(titanic, aes(age)) +
   geom_line(stat = "density", bw = 0.3)
 ```

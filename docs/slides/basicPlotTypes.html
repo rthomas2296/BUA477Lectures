@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-18
+### last updated: 2025-01-07
 ]
 
 ---
@@ -53,7 +53,7 @@ class: center, middle, title-slide
 ---
 .small-font[
 
-```r
+``` r
 glimpse(penguins)
 ```
 
@@ -80,7 +80,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 ---
 ### Putting all that together:
 
-```r
+``` r
 ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))
 ```
 
@@ -92,7 +92,7 @@ ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))
 ### Bar charts use bar geoms (geom_bar()), line charts use line geoms (geom_line()), boxplots use boxplot geoms (geom_boxplot()), scatterplots use point geoms (geom_point()), and so on.
 ---
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(flipper_length_mm,body_mass_g)) +
   geom_point()
@@ -106,7 +106,7 @@ penguins |&gt;
 ---
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(flipper_length_mm,body_mass_g, color = species)) +
   geom_point()
@@ -119,7 +119,7 @@ penguins |&gt;
 ---
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(flipper_length_mm,body_mass_g, color = species)) +
   geom_point() + 
@@ -136,7 +136,7 @@ penguins |&gt;
 #### When aesthetic mappings are defined in ggplot(), at the global level, they’re passed down to each of the subsequent geom layers of the plot. However, each geom function in ggplot2 can also take a mapping argument, which allows for aesthetic mappings at the local level that are added to those inherited from the global level. Since we want points to be colored based on species but don’t want the lines to be separated out for them, we should specify color = species for geom_point() only.
 ---
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(flipper_length_mm,body_mass_g)) +
   geom_point(aes(color = species)) + 
@@ -153,7 +153,7 @@ penguins |&gt;
 #### It’s generally not a good idea to represent information using only colors on a plot, as people perceive colors differently due to color blindness or other color vision differences. Therefore, in addition to color, we can also map species to the shape aesthetic.
 ---
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(flipper_length_mm,body_mass_g)) +
   geom_point(aes(color = species, shape = species)) + 
@@ -172,7 +172,7 @@ penguins |&gt;
 #### Now to add some labels
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(flipper_length_mm,body_mass_g)) +
   geom_point(aes(color = species, shape = species)) + 
@@ -206,7 +206,7 @@ penguins |&gt;
 
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x = species)) +
   geom_bar()
@@ -236,7 +236,7 @@ penguins |&gt;
 ## Histograms
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x=body_mass_g)) +
   geom_histogram(binwidth = 200)
@@ -249,7 +249,7 @@ penguins |&gt;
 ## Histograms - too narrow a binwidth
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x=body_mass_g)) +
   geom_histogram(binwidth = 20)
@@ -261,7 +261,7 @@ penguins |&gt;
 ## Histograms - too wide a binwidth
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x=body_mass_g)) +
   geom_histogram(binwidth = 2000)
@@ -274,7 +274,7 @@ penguins |&gt;
 #### A smoothed out version of the histogram
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x=body_mass_g)) +
   geom_density()
@@ -285,7 +285,7 @@ penguins |&gt;
 ## Watch out! Difference between "color" and "fill"
 
 
-```r
+``` r
 penguins |&gt; 
 ggplot(aes(x = species)) +
   geom_bar(color = "red")
@@ -297,7 +297,7 @@ ggplot(aes(x = species)) +
 ## Watch out! Difference between "color" and "fill"
 
 
-```r
+``` r
 penguins |&gt; 
 ggplot(aes(x = species)) +
   geom_bar(fill = "red")
@@ -322,7 +322,7 @@ ggplot(aes(x = species)) +
 
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(species, body_mass_g)) +
   geom_boxplot()
@@ -335,7 +335,7 @@ penguins |&gt;
 #### Alternatively, doing a Density Plot
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x=body_mass_g, color = species)) +
   geom_density()
@@ -346,7 +346,7 @@ penguins |&gt;
 ---
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x=body_mass_g, color = species)) +
   geom_density(linewidth = 1)
@@ -362,7 +362,7 @@ penguins |&gt;
 
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x=body_mass_g,color = species, fill = species)) +
   geom_density(alpha = 0.5)
@@ -378,7 +378,7 @@ penguins |&gt;
 #### Let us visualize the distribution of species within each island
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x=island, fill = species)) +
   geom_bar()
@@ -392,7 +392,7 @@ penguins |&gt;
 ##### Note: we map the variable that will be separated into bars to the x aesthetic, and the variable that will change the colors inside the bars to the fill aesthetic.
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x=island, fill = species)) +
   geom_bar(position = "fill")
@@ -405,7 +405,7 @@ penguins |&gt;
 #### Scatterplot with geom_point() and smooth curves with geom_smooth()
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(x = flipper_length_mm, y = body_mass_g)) +
   geom_point()
@@ -417,7 +417,7 @@ penguins |&gt;
 ## Three or more variables
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(flipper_length_mm,body_mass_g)) +
   geom_point(aes(color = species, shape = island))
@@ -435,7 +435,7 @@ penguins |&gt;
 ---
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(flipper_length_mm,body_mass_g)) +
   geom_point(aes(color = species, shape = species)) +
@@ -449,7 +449,7 @@ penguins |&gt;
 ## Saving your plots
 
 
-```r
+``` r
 penguins |&gt; 
   ggplot(aes(flipper_length_mm,body_mass_g)) +
   geom_point(aes(color = species, shape = species)) +
@@ -458,7 +458,7 @@ penguins |&gt;
 
 ![](basicPlotTypes_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
 
-```r
+``` r
 ggsave(filename = "testSaveOfPenguins.png")
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: "Visualizing distributions 1"
-author: "Roy Thomas - Adapted from Claus Wilke course"
+author: "Roy Thomas"
 date: "last updated: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
@@ -22,7 +22,7 @@ library(tidyverse)
 library(cowplot)
 library(colorspace)
 library(here)
-# ggplot2 settings so plots scale well for slide size 
+# ggplot2 settings so plots scale well for slide size  
 theme_set(theme_gray(16)) # 16 for full width, 18 for half width 
 update_geom_defaults("point", list(size = 2)) # 2 for full width, 2.5 for half width
 

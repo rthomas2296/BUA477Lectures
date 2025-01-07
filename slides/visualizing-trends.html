@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-27
+### last updated: 2025-01-07
 ]
 
 ---
@@ -102,6 +102,12 @@ Figure redrawn after [Claus O. Wilke. Fundamentals of Data Visualization. O'Reil
 ## We visualize linear trends with regression lines
 
 .center[
+
+```
+Warning: No shared levels found between `names(values)` of the manual scale and the
+data's colour values.
+```
+
 ![](visualizing-trends_files/figure-html/blue-jays-scatter-line-sex-1.svg)&lt;!-- --&gt;
 ]
 
@@ -116,6 +122,12 @@ Figure redrawn after [Claus O. Wilke. Fundamentals of Data Visualization. O'Reil
 ## We visualize linear trends with regression lines
 
 .center[
+
+```
+Warning: No shared levels found between `names(values)` of the manual scale and the
+data's colour values.
+```
+
 ![](visualizing-trends_files/figure-html/blue-jays-scatter-female-1.svg)&lt;!-- --&gt;
 ]
 
@@ -142,6 +154,12 @@ Figure redrawn after [Claus O. Wilke. Fundamentals of Data Visualization. O'Reil
 ## We visualize linear trends with regression lines
 
 .center[
+
+```
+Warning: No shared levels found between `names(values)` of the manual scale and the
+data's colour values.
+```
+
 ![](visualizing-trends_files/figure-html/blue-jays-scatter-male-1.svg)&lt;!-- --&gt;
 ]
 
@@ -179,6 +197,16 @@ Figure redrawn after [Claus O. Wilke. Fundamentals of Data Visualization. O'Reil
 ## Exponential trends are linear trends on a log scale
 
 .center[
+
+```
+Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
+3.5.0.
+ℹ Please use the `legend.position.inside` argument of `theme()` instead.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
+```
+
 ![](visualizing-trends_files/figure-html/biorxiv-nofit-1.svg)&lt;!-- --&gt;
 ]
 
@@ -318,7 +346,7 @@ First dataset: `blue_jays`
 
 .tiny-font[
 
-```r
+``` r
 blue_jays &lt;- read_csv("https://wilkelab.org/SDS375/datasets/blue_jays.csv")
 blue_jays
 ```
@@ -350,7 +378,7 @@ Second dataset: `cars93`
 
 .tiny-font[
 
-```r
+``` r
 cars93 &lt;- read_csv("https://wilkelab.org/SDS375/datasets/cars93.csv")
 cars93
 ```
@@ -385,7 +413,7 @@ cars93
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(blue_jays) +
   aes(body_mass_g, head_length_mm) + 
   geom_point() + theme_bw(14)
@@ -407,7 +435,7 @@ Scatter plot only
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(blue_jays) +
   aes(body_mass_g, head_length_mm) + 
   geom_point() + theme_bw(14) +
@@ -434,7 +462,7 @@ Scatter plot with loess smooth
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(blue_jays) +
   aes(body_mass_g, head_length_mm) + 
   geom_point() + theme_bw(14) +
@@ -465,7 +493,7 @@ Scatter plot with linear regression
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(blue_jays) +
   aes(body_mass_g, head_length_mm) + 
   geom_point() + theme_bw(14) +
@@ -497,7 +525,7 @@ Scatter plot with linear regression, no confidence band
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(blue_jays) +
   aes(
     body_mass_g, head_length_mm,
@@ -537,7 +565,7 @@ class: middle, center
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +
@@ -566,7 +594,7 @@ Do more expensive cars have a larger fuel tank?
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +
@@ -592,7 +620,7 @@ ggplot(cars93) +
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +
@@ -622,7 +650,7 @@ Caution: Exact shape of smoothing line depends on method details
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +
@@ -651,7 +679,7 @@ Caution: Exact shape of smoothing line depends on method details
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +
@@ -680,7 +708,7 @@ Caution: Exact shape of smoothing line depends on method details
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +
@@ -708,7 +736,7 @@ Caution: Exact shape of smoothing line depends on method details
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +
@@ -736,7 +764,7 @@ Caution: Exact shape of smoothing line depends on method details
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +
@@ -763,7 +791,7 @@ Caution: Exact shape of smoothing line depends on method details
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +
@@ -791,7 +819,7 @@ Caution: Exact shape of smoothing line depends on method details
 
 .tiny-font.pull-left[
 
-```r
+``` r
 ggplot(cars93) +
   aes(x = Price, y = Fuel.tank.capacity) +
   geom_point() + theme_bw(14) +

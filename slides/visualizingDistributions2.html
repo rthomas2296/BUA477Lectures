@@ -3,7 +3,7 @@
   <head>
     <title>Visualizing distributions 2</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Roy Thomas - adapted from Claus O. Wilke course" />
+    <meta name="author" content="Roy Thomas" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="Wilke-slides-theme.css" type="text/css" />
@@ -16,10 +16,10 @@ class: center, middle, title-slide
 # Visualizing distributions 2
 ]
 .author[
-### Roy Thomas - adapted from Claus O. Wilke course
+### Roy Thomas
 ]
 .date[
-### last updated: 2023-09-20
+### last updated: 2025-01-07
 ]
 
 ---
@@ -323,7 +323,7 @@ All examples will use the `lincoln_temps` dataset:
 
 .tiny-font[
 
-```r
+``` r
 lincoln_temps &lt;- readRDS(url("https://wilkelab.org/SDS375/datasets/lincoln_temps.rds"))
 ```
 ]
@@ -350,7 +350,7 @@ ridgeline    | `geom_density_ridges()` | From package **ggridges**
 
 .tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
   geom_boxplot(fill = "skyblue") 
 ```
@@ -366,7 +366,7 @@ ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
   geom_violin(fill = "skyblue") 
 ```
@@ -383,7 +383,7 @@ ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
   geom_point(size = 0.75)  # reduce point size to minimize overplotting 
 ```
@@ -400,7 +400,7 @@ ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
 
 .tiny-font[
 
-```r
+``` r
 ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
   geom_point(size = 0.75,  # reduce point size to minimize overplotting 
     position = position_jitter(
@@ -422,7 +422,7 @@ ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
 
 .tiny-font[
 
-```r
+``` r
 library(ggforce) # for geom_sina()
 
 ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
@@ -442,7 +442,7 @@ ggplot(lincoln_temps, aes(x = month, y = mean_temp)) +
 
 .tiny-font[
 
-```r
+``` r
 library(ggridges) # for geom_density_ridges
 
 ggplot(lincoln_temps, aes(x = mean_temp, y = month_long)) +

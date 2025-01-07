@@ -19,7 +19,7 @@ class: center, middle, title-slide
 ### Roy Thomas
 ]
 .date[
-### last updated: 2023-10-02
+### last updated: 2025-01-07
 ]
 
 ---
@@ -38,7 +38,7 @@ We can use `fct_relevel()` to manually order the bars in a bar plot
 
 .tiny-font[
 
-```r
+``` r
 ggplot(penguins, aes(y = fct_relevel(species, "Chinstrap", "Gentoo", "Adelie"))) +
   geom_bar()
 ```
@@ -54,7 +54,7 @@ ggplot(penguins, aes(y = fct_relevel(species, "Chinstrap", "Gentoo", "Adelie")))
 
 .tiny-font[
 
-```r
+``` r
 penguins  |&gt; 
   mutate(species = fct_relevel(species, "Chinstrap", "Gentoo", "Adelie")) |&gt;
   ggplot(aes(y = species)) +
@@ -72,7 +72,7 @@ penguins  |&gt;
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_relevel(species, "Chinstrap", "Gentoo", "Adelie")) |&gt;
   slice(1:30) |&gt;   # get first 30 rows
@@ -111,7 +111,7 @@ Levels: Chinstrap Gentoo Adelie
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_relevel(species, "Chinstrap", "Gentoo", "Adelie")) |&gt;
   slice(1:30) |&gt;   # get first 30 rows
@@ -125,7 +125,7 @@ penguins |&gt;
 Levels: Chinstrap Gentoo Adelie
 ```
 
-```r
+``` r
 # the order of factor levels is independent of the order of values in the table
 penguins |&gt; 
   mutate(species = fct_relevel(species, "Chinstrap", "Gentoo", "Adelie"))
@@ -157,7 +157,7 @@ penguins |&gt;
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_relevel(species)) |&gt;
   slice(1:30) |&gt;   # get first 30 rows
@@ -181,7 +181,7 @@ Default: alphabetic order
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_relevel(species, "Gentoo")) |&gt;
   slice(1:30) |&gt;   # get first 30 rows
@@ -206,7 +206,7 @@ Move `"Gentoo"` in front, rest alphabetic
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_relevel(species, "Chinstrap", "Gentoo")) |&gt;
   slice(1:30) |&gt;   # get first 30 rows
@@ -232,7 +232,7 @@ Move `"Chinstrap"` in front, then `"Gentoo"`, rest alphabetic
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_relevel(species, "Chinstrap", "Adelie", "Gentoo")) |&gt;
   slice(1:30) |&gt;   # get first 30 rows
@@ -258,7 +258,7 @@ Use order `"Chinstrap"`, `"Adelie"`, `"Gentoo"`
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_relevel(species, "Gentoo", "Chinstrap", "Adelie")) |&gt;
   slice(1:30) |&gt;   # get first 30 rows
@@ -284,7 +284,7 @@ Use order `"Gentoo"`, `"Chinstrap"`, `"Adelie"`
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_relevel(species, "Chinstrap", "Gentoo", "Adelie")) |&gt;
   ggplot(aes(y = species)) +
@@ -302,7 +302,7 @@ penguins |&gt;
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_infreq(species)) |&gt;
   slice(1:30) |&gt;   # get first 30 rows
@@ -336,7 +336,7 @@ Levels: Adelie Gentoo Chinstrap
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_infreq(species)) |&gt;
   ggplot(aes(y = species)) + geom_bar()
@@ -354,7 +354,7 @@ penguins |&gt;
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   mutate(species = fct_rev(fct_infreq(species))) |&gt;
   ggplot(aes(y = species)) + geom_bar()
@@ -372,7 +372,7 @@ penguins |&gt;
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   count(species)
 ```
@@ -393,7 +393,7 @@ penguins |&gt;
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   count(species) |&gt;
   mutate(species = fct_reorder(species, n)) |&gt;
@@ -419,7 +419,7 @@ The order is ascending, from smallest to largest value
 
 .tiny-font[
 
-```r
+``` r
 penguins |&gt;
   count(species) |&gt;
   mutate(species = fct_reorder(species, n)) |&gt;
@@ -438,7 +438,7 @@ penguins |&gt;
 
 .xtiny-font.pull-left[
 
-```r
+``` r
 penguins |&gt;
   count(species) |&gt; # summarize data
   mutate(species = fct_reorder(species, n))
@@ -460,7 +460,7 @@ penguins |&gt;
 
 .xtiny-font.pull-right[
 
-```r
+``` r
 penguins |&gt; 
   # modify the original dataset, no summary
   mutate(species = fct_infreq(species))
@@ -492,7 +492,7 @@ penguins |&gt;
 
 .xtiny-font.pull-left[
 
-```r
+``` r
 penguins |&gt;
   count(species) |&gt; # summarize data
   mutate(species = fct_reorder(species, n)) |&gt;
@@ -505,7 +505,7 @@ penguins |&gt;
 
 .xtiny-font.pull-right[
 
-```r
+``` r
 penguins |&gt; 
   # modify the original dataset, no summary
   mutate(species = fct_infreq(species)) |&gt;
@@ -521,7 +521,7 @@ penguins |&gt;
 
 .xtiny-font.pull-left[
 
-```r
+``` r
 penguins |&gt;
   count(species) |&gt; # summarize data
   mutate(species = fct_reorder(species, n)) |&gt;
@@ -534,7 +534,7 @@ penguins |&gt;
 
 .xtiny-font.pull-right[
 
-```r
+``` r
 penguins |&gt; 
   # modify the original dataset, no summary
   mutate(species = fct_infreq(species)) |&gt;
@@ -558,9 +558,15 @@ class: middle, center
 
 .tiny-font[
 
-```r
+``` r
 library(gapminder)
+```
 
+```
+Warning: package 'gapminder' was built under R version 4.3.3
+```
+
+``` r
 gapminder
 ```
 
@@ -588,7 +594,7 @@ gapminder
 
 .tiny-font.pull-left[
 
-```r
+``` r
 gapminder |&gt;
   filter(
     year == 2007,
@@ -612,7 +618,7 @@ gapminder |&gt;
 .pull-left[
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(
     year == 2007,
@@ -638,7 +644,7 @@ Default order is alphabetic, from bottom to top
 
 .pull-left[.tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(
     year == 2007,
@@ -668,7 +674,7 @@ Order is ascending from bottom to top
 
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(country %in% c("Norway", "Portugal", "Spain", "Austria")) |&gt;
   ggplot(aes(year, lifeExp)) + geom_line() +
@@ -692,7 +698,7 @@ gapminder |&gt;
 
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(country %in% c("Norway", "Portugal", "Spain", "Austria")) |&gt;
   ggplot(aes(year, lifeExp)) + geom_line() +
@@ -715,7 +721,7 @@ gapminder |&gt;
 
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(country %in% c("Norway", "Portugal", "Spain", "Austria")) |&gt;
   mutate(country = fct_reorder(country, lifeExp)) |&gt; # default: order by median
@@ -741,7 +747,7 @@ gapminder |&gt;
 
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(country %in% c("Norway", "Portugal", "Spain", "Austria")) |&gt;
   mutate(country = fct_reorder(country, lifeExp)) |&gt; # default: order by median
@@ -765,7 +771,7 @@ gapminder |&gt;
 
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(country %in% c("Norway", "Portugal", "Spain", "Austria")) |&gt;
   mutate(country = fct_reorder(country, lifeExp, median)) |&gt; # order by median
@@ -789,7 +795,7 @@ gapminder |&gt;
 
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(country %in% c("Norway", "Portugal", "Spain", "Austria")) |&gt;
   mutate(country = fct_reorder(country, lifeExp, min)) |&gt; # order by minimum
@@ -809,7 +815,7 @@ gapminder |&gt;
 
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(country %in% c("Norway", "Portugal", "Spain", "Austria")) |&gt;
   mutate(country = fct_reorder(country, lifeExp, max)) |&gt; # order by maximum
@@ -828,7 +834,7 @@ gapminder |&gt;
 
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(country %in% c("Norway", "Portugal", "Spain", "Austria")) |&gt;
   # order by custom function: here, difference between max and min
@@ -848,7 +854,7 @@ gapminder |&gt;
 
 .tiny-font[
 
-```r
+``` r
 gapminder |&gt;
   filter(country %in% c("Norway", "Portugal", "Spain", "Austria")) |&gt;
   # order by custom function: here, difference between min and max
@@ -874,9 +880,15 @@ Dataset: Flights out of New York City in 2013
 
 .tiny-font[
 
-```r
+``` r
 library(nycflights13)
+```
 
+```
+Warning: package 'nycflights13' was built under R version 4.3.3
+```
+
+``` r
 flight_data &lt;- flights |&gt; # take data on individual flights
   left_join(airlines) |&gt;  # add in full-length airline names
   select(name, carrier, flight, year, month, day, origin, dest) # pick columns of interest
@@ -891,7 +903,7 @@ Joining with `by = join_by(carrier)`
 
 .tiny-font[
 
-```r
+``` r
 flight_data
 ```
 
@@ -919,7 +931,7 @@ flight_data
 
 .pull-left.tiny-font[
 
-```r
+``` r
 flight_data |&gt;
   ggplot(aes(y = name)) + 
   geom_bar()
@@ -944,7 +956,7 @@ As (almost) always, the default alphabetic ordering is terrible
 
 .pull-left.tiny-font[
 
-```r
+``` r
 flight_data |&gt;
   mutate(
     name = fct_infreq(name)
@@ -971,7 +983,7 @@ Ordering by frequency is better, but do we need to show all airlines?
 
 .pull-left.tiny-font[
 
-```r
+``` r
 flight_data |&gt;
   mutate(
     # keep only the 7 most common airlines
@@ -1000,7 +1012,7 @@ Now the ordering is again alphabetic...
 
 .pull-left.tiny-font[
 
-```r
+``` r
 flight_data |&gt;
   mutate(
     # order after lumping
@@ -1021,7 +1033,7 @@ flight_data |&gt;
 
 .pull-left.tiny-font[
 
-```r
+``` r
 flight_data |&gt;
   mutate(
     # order before lumping
@@ -1050,7 +1062,7 @@ In most cases, you will want to order before lumping
 
 .pull-left.tiny-font[
 
-```r
+``` r
 flight_data |&gt;
   mutate(
     # order before lumping
@@ -1076,7 +1088,7 @@ Can we visually separate the "Other" category?
 
 .pull-left.tiny-font[
 
-```r
+``` r
 flight_data |&gt;
   mutate(
     name = fct_lump_n(fct_infreq(name), 7),
@@ -1114,7 +1126,7 @@ One annoying issue: The legend is in the wrong order
 
 .pull-left.tiny-font[
 
-```r
+``` r
 flight_data |&gt;
   mutate(
     name = fct_lump_n(fct_infreq(name), 7),
@@ -1147,7 +1159,7 @@ flight_data |&gt;
 
 .pull-left.xtiny-font[
 
-```r
+``` r
 flight_data |&gt;
   mutate(
     name = fct_lump_n(fct_infreq(name), 7),
