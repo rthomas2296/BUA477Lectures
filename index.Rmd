@@ -1,5 +1,5 @@
 ---
-title: "BUA 400"
+title: "BUA 477"
 description: Visual Analytics
 site: distill::distill_website
 ---
@@ -15,10 +15,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-This is the home page for BUA 400 - Visual Analytics
+This is the home page for BUA 477 - Visual Analytics
 
 Instructor: Roy Thomas
-Meeting times: M/T/W/T/F 8:00am to 5pm 
+Meeting times: Tu/Th - 11am to 12:15pm 
 
 To run any of the materials locally on your own machine, you will need the following:
 

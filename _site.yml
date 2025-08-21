@@ -1,10 +1,10 @@
-name: "BUA400"
-title: "BUA 400"
+name: "BUA477"
+title: "BUA 477"
 description: |
-  BUA 400 - Visual Analytics
+  BUA 477 - Visual Analytics
 output_dir: "docs"
 theme: "theme.css"
-repository_url: https://github.com/rthomas2296/BUA400Lectures
+repository_url: https://github.com/rthomas2296/BUA477Lectures
 include: [".nojekyll"]
 navbar:
   source_url: false
