@@ -5,7 +5,8 @@
 #                                                           #
 #############################################################
 title: "Coordinate systems and axes"
-author: "Claus O. Wilke"
+author:
+  - name: "Roy Thomas"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---

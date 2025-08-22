@@ -1,6 +1,7 @@
 ---
 title: "Packages to Install"
-author: "Roy Thomas"
+author:
+  - name: "Roy Thomas"
 date: "2023-08-28"
 output: html_document
 ---

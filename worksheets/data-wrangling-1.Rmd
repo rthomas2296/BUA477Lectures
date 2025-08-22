@@ -5,7 +5,8 @@
 #                                                           #
 #############################################################
 title: "Data wrangling 1"
-author: "Roy Thomas"
+author:
+  - name: "Roy Thomas"
 output:
   html_document: default
 ---

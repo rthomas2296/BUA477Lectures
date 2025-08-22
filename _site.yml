@@ -6,8 +6,10 @@ output_dir: "docs"
 theme: "theme.css"
 repository_url: https://github.com/rthomas2296/BUA477Lectures
 include: [".nojekyll"]
+search: true
 navbar:
   source_url: false
+
   
 
   right:
@@ -74,4 +76,44 @@ navbar:
           
 
 
-output: distill::distill_article
+
+
+rmd_files:
+  # top-level pages
+  - index.Rmd
+  - LICENSE.Rmd
+  - schedule.Rmd
+  - syllabus.Rmd
+
+  # slides
+  - slides/introduction.Rmd
+  - slides/dataWrangling.Rmd
+  - slides/dataWrangling2.Rmd
+  - slides/tellingAStory.Rmd
+  - slides/visualDesignPrinciples.Rmd
+  - slides/introductionToGgplot.Rmd
+  - slides/coordinateSystemsAxes.Rmd
+  - slides/basicPlotTypes.Rmd
+  - slides/visualizingDistributions1.Rmd
+  - slides/visualizingDistributions2.Rmd
+  - slides/visualizing-proportions.Rmd
+  - slides/visualizing-trends.Rmd
+  - slides/getting-things-in-order.Rmd
+  - slides/figure-design.Rmd
+  - slides/interactive-plots.Rmd
+  - slides/animations.Rmd
+
+  # worksheets
+  - worksheets/packages2Install.Rmd
+  - worksheets/intro2RMarkdown.Rmd
+  - worksheets/data-wrangling-1.Rmd
+  - worksheets/basicPlotExercise.Rmd
+  - worksheets/visualizing-amounts.Rmd
+  - worksheets/coordinate-systems-axes.Rmd
+  - worksheets/visualizing-distributions-1.Rmd
+  - worksheets/visualizing-distributions-2.Rmd
+  - worksheets/visualizing-proportions.Rmd
+  - worksheets/visualizing-trends.Rmd
+
+
+
