@@ -43,7 +43,7 @@ install.packages(
   )
 )
 
-# then run this command:
+# then run this command: 
 install.packages(
   "rnaturalearthhires", repos = "https://packages.ropensci.org", type = "source"
 )
