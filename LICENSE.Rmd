@@ -2,8 +2,6 @@
 title: "License"
 description: |
   an article describing licensed use
-author:
-  - name: Roy Thomas 
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
