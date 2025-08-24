@@ -1,7 +1,5 @@
 ---
 title: "BUA 477 Visual Analytics"
-author:
-    - name: "Roy Thomas"
 date: "last updated: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
@@ -20,7 +18,7 @@ options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = "")
 ```
 
-### What is Visual AnalyticsRoy
+### What is Visual Analytics
 
 --
 <br>

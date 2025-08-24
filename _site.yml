@@ -1,7 +1,7 @@
 name: "BUA477"
 title: "BUA 477"
 description: |
-  BUA 477 - Visual Analytics
+  BUA 477 - Visual Analytic
 output_dir: "docs"
 theme: "theme.css"
 repository_url: https://github.com/rthomas2296/BUA477Lectures

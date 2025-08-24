@@ -1,7 +1,5 @@
 ---
 title: "Data Wrangling"
-author:
-    - name: "Roy Thomas"
 date: "last updated: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
