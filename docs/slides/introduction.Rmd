@@ -63,6 +63,7 @@ knitr::kable(
 
 <img src = "https://clauswilke.com/dataviz/multi-panel_figures_files/figure-html/athletes-composite-good-1.png",  width = 30%, style = "position:absolute; top: 52%; left: 40%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
 
+---
 
 ## Course Breakdown
 
@@ -236,7 +237,7 @@ class: middle, center
 .small-font[
 ```
 This is a sentence in Markdown, containing `code`, **bold text**,
-and _italics_.
+and *italics*, and ***bolded italics***.
 ```
 ]
 
@@ -246,7 +247,7 @@ and _italics_.
 **Output:**
 
 .small-font[
-This is a sentence in Markdown, containing `code`, **bold text**, and _italics_.
+This is a sentence in Markdown, containing `code`, **bold text**, and *italics*, and ***bolded italics***.
 ]
 
 ---
@@ -287,8 +288,8 @@ You can have one to six hash tags
 ```
  **bold**  
 `code`  
- _italics_  
- **_bold and italics_**  
+ *italics*  
+ ***bold and italics***  
 - unordered list
 - item 2
  - item 2a (indent 1 tab)
@@ -306,8 +307,8 @@ You can have one to six hash tags
 
 **bold**  
 `code`  
-_italics_  
-**_bold and italics_**  
+*italics*  
+***bold and italics***  
 - unordered list
 - item 2
  - item 2a (indent 1 tab)
