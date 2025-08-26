@@ -63,20 +63,6 @@ knitr::kable(
 
 <img src = "https://clauswilke.com/dataviz/multi-panel_figures_files/figure-html/athletes-composite-good-1.png",  width = 30%, style = "position:absolute; top: 52%; left: 40%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
 
----
-class: middle, center
-## Syllabus
-
-#### [Visual Analytics Syllabus]
-
----
-class: middle, center
-
-## Attendance
-
-#### [Qwickly Attendance]
-
----
 
 ## Course Breakdown
 
@@ -118,7 +104,7 @@ class: middle, center
 
 - Launch RStudio - RStudio Version: Go to Help --> About RStudio
 - Latest RStudio Version: 
-- Latest R Version: 4.4.2
+- Latest R Version: 4.5.1
 
 ---
 ## Steps to test...
@@ -137,8 +123,6 @@ str(mtcars)
 ```{R include=TRUE, echo=FALSE}
 plot(mtcars$disp,mtcars$mpg)
 ```
-
----
 
 ---
 class: middle

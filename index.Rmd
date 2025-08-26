@@ -27,7 +27,8 @@ To run any of the materials locally on your own machine, you will need the follo
 - The following R packages:    
   broom, cluster, colorspace, cowplot, distill, gapminder, GGally, gganimate,  ggiraph, ggdendro, ggdist, ggforce, ggplot2movies, ggrepel, ggridges, ggthemes, gifski, glue, knitr, learnr, naniar, margins, MASS, Matrix, nycflights13, palmerpenguins, patchwork, rgdal, rmarkdown, rnaturalearth, rnaturalearthhires, sf, shinyjs, tidyverse, transformr, umap, xaringan
 
-You can install all required R packages at once by running the following code in the R command line:
+
+You can install all required R packages at once by running the following code in the R command line:  (HOWEVER, WE WILL NOT INSTALL THEM ALL TOGETHER, RIGHT NOW. INSTEAD, WE WILL ONLY INSTALL THE PACKAGES WE NEED.  SO IGNORE THESE INSTALLATIONS, UNTIL TOLD LATER!!)
 
 ```{r eval = FALSE, echo = TRUE}
 # first run this command:
@@ -43,6 +44,7 @@ install.packages(
   )
 )
 
+#HOLD OFF RUNNING THIS COMMAND, AS WELL
 # then run this command: 
 install.packages(
   "rnaturalearthhires", repos = "https://packages.ropensci.org", type = "source"
