@@ -361,7 +361,8 @@ Links:
 .pull-left[
 **Input:**
 ```
-[Link Text](https://google.com)
+[Link Text](URL)
+[Google Search](https://google.com)
 ```
 ]
 
