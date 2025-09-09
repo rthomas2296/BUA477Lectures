@@ -1,0 +1,179 @@
+---
+title: "Untitled"
+author: "Roy Thomas"
+date: "2025-09-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Q1. Gapminder bar chart with reordered factors
+**Task.** Using `gapminder`:
+- Filter to the year **2007**.
+- Compute **average life expectancy** by **continent**.
+- Make a **bar chart** with continents reordered by average life expectancy.
+- Format the y-axis to show **whole numbers** only and add clear labels.
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)   # ggplot2, dplyr, readr, tibble, tidyr, stringr, forcats
+library(ggthemes)    # scale_color_colorblind()
+library(gapminder)   # gapminder dataset
+library(ggrepel)     # geom_text_repel (for cleaner labels)
+library(scales)      # nice axis labels/breaks
+```
+
+```{r q1-solution}
+gap_2007 <- gapminder |>
+  filter(year == 2007) |>
+  group_by(continent) |>
+  summarize(avg_lifeExp = mean(lifeExp, na.rm = TRUE), .groups = "drop")
+
+# When you add .groups = "drop" inside summarize(), you’re explicitly telling dplyr:
+# "Remove the grouping after summarizing, give me back a plain tibble.”
+# Otherwise, if you didn't have the "drop" line, then it may affect future operations
+
+ggplot(gap_2007, aes(x = fct_reorder(continent, avg_lifeExp), y = avg_lifeExp)) +
+  geom_col(fill = "steelblue") +
+  scale_y_continuous(labels = number_format(accuracy = 1),
+                     limits = c(0, max(gap_2007$avg_lifeExp) * 1.1),
+                     expand = expansion(mult = c(0, 0.05))) +
+  labs(
+    x = NULL,
+    y = "Average Life Expectancy (years)",
+    title = "Average Life Expectancy by Continent (2007)",
+    subtitle = "Gapminder"
+  ) 
+  #coord_cartesian(ylim = c(0, max(gap_2007$avg_lifeExp))) 
+  #theme_minimal(base_size = 12)
+```
+
+
+
+## Q2. Scatterplot with logarithmic scale and labels
+**Task.** Using built-in `mtcars`:
+- Scatterplot of `wt` (x) vs `mpg` (y).
+- Add car names as **labels**.
+- Transform the x-axis to **log10** scale and relabel it “Car Weight (log scale)”.
+- Keep the plot readable.
+
+
+
+```{r q2-solution}
+#If you look at the mtcars dataset, you will see that the ROW NAMES
+#are the car names.  If you want to see the car names, as a COLUMN,
+#we would need to run the rownnames_to_column command
+
+#Take a look at mtcars
+#mtcars
+
+#Now, let us make the car names into a COLUMN
+mtcars_tbl <- rownames_to_column(mtcars, var = "car")
+
+
+ggplot(mtcars_tbl, aes(x = wt, y = mpg, label = car)) +
+  geom_point() +
+  #Setting min.segment.length = 0 forces all leader lines to be drawn, even if they’re tiny.
+  geom_text_repel(min.segment.length = 0, size = 2) +
+  scale_x_log10(name = "Car Weight (log scale)",
+                labels = label_number(accuracy = 0.1)) +
+  labs(y = "Miles per Gallon (mpg)",
+       title = "Fuel Efficiency vs. Vehicle Weight",
+       subtitle = "mtcars dataset (x-axis log10)") +
+  theme_minimal(base_size = 12)
+
+```
+
+## Q3. Species scatterplot with regression lines
+**Task.** Using `iris`:
+- Scatterplot of `Sepal.Length` vs `Petal.Length`.
+- Color points by `Species`.
+- Add **separate regression lines** per species.
+- Use a colorblind-friendly palette.
+
+
+```{r q3-solution}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, color = Species)) +
+  geom_point(alpha = 0.8) +
+  #by default, ggplot2 adds a shaded ribbon around the line, 
+  #representing the 95% confidence interval for the fitted values.
+  #se = FALSE, turns that shading off, so you see just the line.
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_color_colorblind() +
+  labs(
+    x = "Sepal Length (cm)",
+    y = "Petal Length (cm)",
+    title = "Iris: Petal vs Sepal Length by Species",
+    color = "Species"
+  ) +
+  theme_minimal(base_size = 12)
+
+```
+
+
+
+
+
+## Q4. Distribution plots: histogram and density (diamonds)
+**Task.** Using `ggplot2::diamonds`:
+- Plot a **histogram** of `price` with `binwidth = 500`.
+- On a separate plot, show a **density curve** of `price` (use a visible outline color).
+- Briefly compare what each reveals about **skewness**.
+
+
+```{r q4-solution}
+# Histogram
+ggplot(diamonds, aes(x = price)) +
+  #boundary = 0  : Controls where the bins start.  
+  #closed = "left" : Determines which side of the bin interval is inclusive:
+  geom_histogram(binwidth = 500, boundary = 0, closed = "left", fill = "grey70") +
+  labs(
+    x = "Price (USD)",
+    y = "Count",
+    title = "Diamonds: Price Distribution (Histogram, binwidth = 500)"
+  ) +
+  theme_minimal(base_size = 12)
+
+# Density
+ggplot(diamonds, aes(x = price)) +
+  geom_density(linewidth = 1) +
+  labs(
+    x = "Price (USD)",
+    y = "Density",
+    title = "Diamonds: Price Distribution (Density)"
+  ) +
+  theme_minimal(base_size = 12)
+
+```
+
+
+**Instructor note (talk track):**  
+Both plots show a **right-skewed** distribution. The histogram emphasizes counts per bin and can reveal local spikes caused by pricing granularity; the density smooths these into an overall shape, making the **skewness** more visually apparent.
+
+## Q5. Faceted boxplots (mpg)
+**Task.** Using `mpg`:
+- Boxplot of `hwy` by `class`.
+- **Facet** by `drv` (f = front, r = rear, 4 = 4-wheel).
+- Rotate x-axis labels for readability.
+
+
+```{r q5-solution}
+ggplot(mpg, aes(x = class, y = hwy)) +
+  #This line below makes the outlier partially transparent
+  geom_boxplot(outlier.alpha = 0.5) +
+  facet_wrap(~ drv) +
+  labs(
+    x = "Vehicle Class",
+    y = "Highway MPG",
+    title = "Highway Fuel Economy by Class, Faceted by Drive Type"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+

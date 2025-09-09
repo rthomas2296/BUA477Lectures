@@ -1,0 +1,114 @@
+---
+title: "Untitled"
+author: "Roy Thomas"
+date: "2025-09-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+
+```{r}
+temperatures <- read_csv("https://wilkelab.org/SDS375/datasets/tempnormals.csv")  |> 
+  mutate(
+    location = factor(
+      location, levels = c("Death Valley", "Houston", "San Diego", "Chicago")
+    )
+  )  |> 
+  select(location, station_id, day_of_year, month, temperature)
+```
+```{r}
+boxoffice <- tibble(
+  rank = 1:5,
+  title = c("Star Wars", "Jumanji", "Pitch Perfect 3", "Greatest Showman", "Ferdinand"),
+  amount = c(71.57, 36.17, 19.93, 8.81, 7.32) # million USD
+)
+```
+
+```{r}
+tx_counties <- read_csv("https://wilkelab.org/SDS375/datasets/US_census.csv") %>% 
+  filter(state == "Texas") %>%
+  mutate(popratio = pop2010/median(pop2010)) %>%
+  arrange(desc(popratio)) %>%
+  mutate(index = 1:n())
+```
+```{r}
+ggplot(boxoffice, aes(amount,fct_reorder(title,amount)))+
+  geom_col()+
+  scale_x_continuous(
+    name = "whatever",
+    limits = c(0,80),
+    breaks = c(0,20,40,60,80),
+    labels = c(0,"$20","$40","$60","$80"),
+    expand = expansion(mult = c(0,0.06))
+  )+
+  scale_y_discrete(
+    name = NULL
+  )
+```
+```{r}
+ggplot(tx_counties, aes(index, popratio))+
+  geom_point()+
+  scale_y_log10(
+    name = "population number / median",
+    breaks = c(0.01,1,100)
+  )
+```
+```{r}
+library(palmerpenguins)
+library(ggthemes)
+```
+
+
+```{r}
+ggplot(penguins, aes(flipper_length_mm,body_mass_g))+
+  geom_point(aes(color = species, shape = species))+
+  geom_smooth(method = "lm")+
+  labs(title = "title",
+       subtitle = "subtitle",
+       x = "x", y = "y",
+       color = "SSSpecies", shape = "SSSpecies")+
+  scale_color_colorblind()
+  
+```
+
+```{r}
+penguins |> 
+  ggplot(aes(fct_infreq(species)))+
+  geom_bar()
+
+```
+
+```{r}
+penguins |> 
+  ggplot(aes(body_mass_g))+
+  geom_histogram(binwidth = 200)
+
+penguins |> 
+  ggplot(aes(body_mass_g))+
+  geom_density(color = "red")
+
+
+penguins |> 
+  ggplot(aes(species,body_mass_g))+
+  geom_boxplot()
+
+
+penguins |> 
+  ggplot(aes(flipper_length_mm,body_mass_g)) +
+  geom_point(aes(color = species, shape = species)) +
+  facet_wrap(~island)
+
+
+```
+
+
+
+
