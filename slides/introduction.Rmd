@@ -18,7 +18,7 @@ options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = "")
 ```
 
-### What is Visual Analytics
+### What is Visual Analytics?
 
 --
 <br>

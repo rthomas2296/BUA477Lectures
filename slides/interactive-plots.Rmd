@@ -21,7 +21,7 @@ knitr::opts_chunk$set(comment = "")
 
 library(tidyverse)
 library(colorspace)
-library(colorblindr)
+#library(colorblindr)
 library(cowplot)
 library(ggrepel)
 library(ggiraph)
