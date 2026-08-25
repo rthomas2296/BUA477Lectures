@@ -15,10 +15,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-This is the home page for BUA 477 - Visual Analytics
+This is the home page for BUA 477 - Visual Analytics - Fall 2026-a
 
 Instructor: Roy Thomas
-Meeting times: Tu/Th - 11am to 12:15pm 
+Meeting times: Tu/Th - 11am to 12:20pm 
 
 To run any of the materials locally on your own machine, you will need the following:
 
