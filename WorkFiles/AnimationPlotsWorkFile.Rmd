@@ -1,0 +1,85 @@
+---
+title: "Untitled"
+author: "Roy Thomas"
+date: "2025-09-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+gdp_ranked <- read_csv(url("https://wilkelab.org/SDS375/datasets/gdp_ranked.csv")) |> mutate(rank = fct_rev(factor(rank)))
+```
+
+```{r}
+gdp_ranked |> 
+  filter(year > 1985 & year %% 5 == 0) |> 
+  ggplot(aes(gdp, rank)) +
+  geom_col(aes(fill = country)) +
+  facet_wrap(vars(year))
+```
+```{r}
+library(gganimate)
+gdp_ranked |> 
+  # gganimate uses the `group` aesthetic to track objects across frames
+  ggplot(aes(gdp, rank, group = country)) + 
+  geom_col(aes(fill = country)) +
+  transition_states(year, transition_length = 10)
+```
+```{r}
+library(cowplot)
+gdp_ranked |> 
+  ggplot(aes(gdp, rank, group = country)) +
+  geom_col(aes(fill = country)) +
+  geom_text(
+    aes(x = -200, label = country),
+    hjust = 1, size = 14/.pt
+  ) +
+  xlim(-7000, 23000) +
+  labs(title = "year: {closest_state}") +
+  theme_minimal_vgrid(14, rel_small = 1) +
+  theme(
+    axis.text.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.line.y = element_blank()
+  ) + 
+  guides(fill = "none") +
+  transition_states(year, transition_length = 5)
+```
+```{r}
+selected <- c("China", "Japan",
+  "United States", "Germany", "Brazil")
+gdp_ranked %>%
+  filter(country %in% selected) %>%
+  ggplot(aes(year, gdp, color = country)) +
+  geom_line() +
+  geom_point(size = 3) +
+  scale_y_log10() +
+  transition_reveal(year)
+```
+```{r}
+library(ggrepel)
+gdp_ranked %>%
+  filter(country %in% selected) %>%
+  ggplot(aes(year, gdp, color = country)) +
+  geom_line() +
+  geom_point(size = 3) +
+  geom_text_repel(
+    aes(label = country),
+    hjust = 0,
+    nudge_x = 2,
+    direction = "y",
+    xlim = c(NA, Inf)
+  ) +
+  scale_y_log10() +
+  guides(color = "none") +
+  coord_cartesian(clip = "off") +
+  theme(plot.margin = margin(7, 100, 7, 7)) +
+  transition_reveal(year)
+```
+
+
+

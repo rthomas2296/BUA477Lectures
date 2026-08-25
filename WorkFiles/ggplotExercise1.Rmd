@@ -1,0 +1,101 @@
+---
+title: "In-Class Exercise: ggplot Practice"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(forcats)
+library(palmerpenguins)   # for penguins dataset
+```
+
+---
+
+## Exercise 1: Scatterplot with Regression Line  
+Dataset: `mpg` (built into ggplot2)  
+
+> Create a scatterplot of engine displacement (`displ`) vs. highway miles per gallon (`hwy`).  
+> - Add a **linear regression line** (`geom_smooth(method="lm")`).  
+> - Color the points by car class (`class`).  
+> What relationship do you see?  
+
+
+```{r}
+
+
+
+
+
+```
+
+---
+
+## Exercise 2: Bar Chart of Counts  
+Dataset: `penguins` (palmerpenguins package)  
+
+> Plot a bar chart showing the number of penguins by `species`.  
+> - Reorder the bars so that the most common species comes LAST  
+
+```{r}
+
+
+
+
+
+
+```
+
+---
+
+## Exercise 3: Line Chart of Trends  
+Dataset: `economics` (built into ggplot2)  
+
+> Plot the unemployment (`unemploy`) over time (`date`).  
+> - Use a line chart.  
+> - Add a smoother with `geom_smooth(method="loess")`.  
+> What long-term trend do you observe?  
+
+```{r}
+
+
+
+
+```
+
+---
+
+## Exercise 4: Boxplot with Jittered Points  
+Dataset: `diamonds` (built into ggplot2)  
+
+> Create a boxplot of diamond price (`price`) by diamond cut (`cut`).  
+> This would mean that price is y, and cut is x
+> - Overlay the raw points using `geom_jitter(alpha=0.1)`.  
+> - Which cut tends to have the highest median price?  
+
+```{r}
+
+
+
+
+
+```
+
+---
+
+## Exercise 5: Stacked Bar Plot with Fill  
+Dataset: `mpg` (built into ggplot2)  
+
+> Plot a stacked bar chart of number of cars by `class`, filled by `drv` (drive type: f = front-wheel, r = rear-wheel, 4 = 4-wheel).  
+> - Use `geom_bar(position="fill")` so the y-axis shows proportions.  
+> - Which car class has the highest proportion of 4-wheel drive?  
+
+```{r}
+
+
+
+
+
+```

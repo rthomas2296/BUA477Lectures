@@ -1,0 +1,113 @@
+---
+title: "Untitled"
+author: "Roy Thomas"
+date: "2025-09-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("ggiraph")
+```
+```{r}
+library(ggplot2)
+library(ggiraph)
+```
+
+
+
+```{r}
+iris_scatter <- ggplot(iris) + 
+  aes(
+    Sepal.Length, Sepal.Width,
+    color = Species
+  ) +
+  geom_point_interactive(aes(tooltip = Species))
+
+girafe(
+  ggobj = iris_scatter,
+  width_svg = 6,
+  height_svg = 6*0.618,
+  options = list(
+    opts_tooltip(
+css = "background: #F5F5F5; color: #191970;"
+    )
+  )
+)
+
+```
+
+```{r}
+iris_scatter <- ggplot(iris) + 
+  aes(
+    Sepal.Length, Sepal.Width,
+    color = Species
+  ) +
+  geom_point_interactive(
+    aes(data_id = Species,
+        tooltip = Species),
+    size = 2
+  )
+girafe(
+  ggobj = iris_scatter,
+  width_svg = 6,
+  height_svg = 6*0.618,
+  options = list(
+    opts_hover(css = "fill: #202020;"),
+    opts_hover_inv(css = "opacity: 0.2;")
+  )
+)
+```
+```{r}
+# load data
+US_states <- readRDS(url("https://wilkelab.org/SDS375/datasets/US_states.rds"))
+# print
+US_states
+```
+```{r}
+US_map <- US_states |> 
+  ggplot() +
+  geom_sf_interactive(
+    aes(tooltip = name)
+  ) +
+  theme_void()
+girafe(
+  ggobj = US_map,
+  width_svg = 6,
+  height_svg = 6*0.618
+)
+```
+```{r}
+library(tidyverse)
+US_map <- US_states |> 
+  mutate( # JavaScript call to open website 
+    onclick = glue::glue(
+'window.open(
+"https://en.wikipedia.org/wiki/{name}")')
+  ) |> 
+  ggplot() +
+  geom_sf_interactive(
+    aes(
+      data_id = name, tooltip = name,
+      onclick = onclick
+    )
+  ) +
+  theme_void()
+girafe(
+  ggobj = US_map,
+  width_svg = 6,
+  height_svg = 6*0.618
+)
+```
+
+
+
+
+
+
+
+
+

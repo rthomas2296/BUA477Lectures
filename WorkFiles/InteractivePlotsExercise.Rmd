@@ -1,0 +1,114 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+Instructions
+
+This set has 2 problems. 
+
+Use the provided datasets (all are built-in or readily available via popular packages).
+
+Where you see Stretch items, look up the function/argument and implement it.
+
+
+## Packages
+
+```{r}
+# Install (first time only) then load
+# install.packages(c("ggplot2","dplyr","gganimate","ggrepel","ggiraph","gapminder","palmerpenguins","sf","rnaturalearth","rnaturalearthdata"))
+
+library(ggplot2)
+library(dplyr)
+library(gganimate)
+library(ggrepel)
+library(ggiraph)
+library(gapminder)
+library(palmerpenguins)
+library(sf)
+#library(rnaturalearth)
+#library(rnaturalearthdata)
+```
+
+---
+
+## Problem 1 — Interactive Scatter (penguins)
+
+Create an **interactive scatterplot** of `bill_length_mm` vs `bill_depth_mm` from `palmerpenguins::penguins`.
+
+**Requirements**:
+
+* Color points by `species`.
+* Use `geom_point_interactive()` with a meaningful `tooltip` (include species and the two numeric values; format to 1 decimal place).
+* Wrap with `girafe()` sized to **6 × 3.7 inches** (golden ratio).
+* Add a hover effect so the hovered point is emphasized and the rest fade.
+
+**Stretch** (research & add):
+
+* Add **zoom/pan** controls with `opts_zoom()`.
+* Tweak tooltip styling (background light gray; text midnight blue) via `opts_tooltip(css = ...)`.
+
+```{r}
+# Your code here
+#This filters out all rows with NAs in them
+p1 <- penguins |> 
+   filter(!is.na(bill_length_mm), !is.na(bill_depth_mm), !is.na(species)) 
+
+#Here, I want to create a new column, which is the row number
+# I can use the row number as a "grouping" feature in data_id
+#Naturally, if I use row number to group, then ONLY that row is in
+#the group. All the other rows are OUTSIDE the group.
+#Contrast that, with using "species" for grouping.
+
+#Also, I want a more complicated tooltip. I want to show species, length
+#and depth. On new lines.  So, I am using sprintf to format a string
+#The \n is a new line
+#The %.1f is a "one" decimal place floating point number
+p1 <- p1 |> mutate(id = dplyr::row_number(),
+                tip = sprintf("%s\nLength: %.1f mm\nDepth: %.1f mm",
+                              species, bill_length_mm, bill_depth_mm))
+
+#You have to SAVE the plot into an object, so that we can pass
+#it onto girafe
+
+  
+```
+
+
+---
+
+
+
+```{r}
+
+# Your code here
+# Let us implement the Zoom feature
+
+
+
+
+```
+
+
+
+
+---
+
+## Problem 2 — Interactive Faceted Plot (mpg)
+
+Create an **interactive faceted scatter** using `ggplot2::mpg` with `hwy` vs `displ`, colored by `class`, faceted by `drv`.
+
+**Requirements**:
+
+* Use `geom_point_interactive()` with a tooltip that shows `manufacturer`, `model`, `hwy`, `displ`.
+* Wrap in `girafe()` and remove the legend (use `guides(color = "none")`).
+
+
+```{r}
+# Your code here
+
+
+
+
+
+```

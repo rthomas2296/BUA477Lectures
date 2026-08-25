@@ -1,0 +1,86 @@
+
+---
+title: "Assignment 2 — Visual Analytics with ggplot (Student)"
+output: html_document
+---
+
+> Enter only the numeric answers in Blackboard. Each answer must be obtained by **making the specified plot** and reading the value from the visualization (bar height, median line, axis reading, etc.), not by summarizing the raw vector.
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggridges)
+theme_set(theme_minimal(base_size = 12))
+```
+
+## Data (provided)
+
+```{r}
+# Bar chart data
+boxoffice <- tibble::tibble(
+  title  = c("Star Wars", "Jumanji", "Pitch Perfect 3", "Greatest Showman", "Ferdinand"),
+  amount = c(71.57, 36.17, 19.93, 8.81, 7.32)
+)
+
+# Line/boxplot data (temperatures)
+temps <- tibble::tibble(
+  day  = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14),
+  temp = c(72, 74, 76, 79, 79, 80, 81, 83, 85, 84, 78, 77, 76, 75)
+)
+
+# Boxplot months
+boxplot_df <- tibble::tibble(
+  month = c(rep("Jan", 14), rep("Jul", 14)),
+  temp  = c(24, 23, 23, 17, 29, 33, 30, 25, 9, 11, 28, 24, 33, 40, 64, 59, 64, 72, 78, 76, 73, 70, 79, 83, 75, 71, 75, 74)
+)
+
+# Ages for histogram/density
+ages <- c(4, 7, 9, 10, 11, 12, 13, 14, 15, 15, 16, 16, 17, 17, 17, 18, 18, 18, 18, 19, 19, 20, 21, 22, 23, 24, 25, 26, 27, 30, 32, 34, 35, 36, 38, 40, 41, 42)
+```
+
+---
+
+### A. Visualizing Amounts (bar charts)
+
+1. Make a vertical bar chart of `boxoffice` using `geom_col()` (x = `title`, y = `amount`).  
+   **Question 1:** What is the **height of the tallest bar**?
+
+2. Reorder bars by `amount` (ascending) using `forcats::fct_reorder(title, amount)` on the x aesthetic.  
+   **Question 2:** After reordering, what is the **x-position (left-to-right order) of "Jumanji"**? (Count positions starting at 1 from the left.)
+
+3. Apply `scale_y_log10()` to the original bar chart.  
+   **Question 3:** What is the **y-value of "Star Wars" on the log10 scale**? (Report a decimal.)
+
+---
+
+### B. Coordinate Systems & Scales
+
+4. Plot a line of `temp` vs `day` from `temps`, and add `geom_hline(yintercept = 80)`.  
+   **Question 4:** On which **day** does the line first cross **above** 80°F? (Smallest day where temp > 80.)
+
+5. Using the same line plot, apply `coord_cartesian(xlim = c(5, 10))`.  
+   **Question 5:** Within this zoom, what is the **highest temperature** visible?
+
+6. Using `boxoffice` again, draw a bar chart and then `coord_flip()`.  
+   **Question 6:** What is the **y-value** of the bar for **"Ferdinand"**?
+
+---
+
+### C. Visualizing Distributions 1 (histograms & density)
+
+7. Plot a histogram of `ages` with `binwidth = 5` and `center = 2.5` (e.g., `geom_histogram(binwidth = 5, center = 2.5)`).  
+   **Question 7:** What is the **height (count) of the tallest bar**?
+
+8. Make the same histogram but map `y = after_stat(density)`.  
+   **Question 8:** What is the **height (density) of the tallest bar**? (Report to 4 decimals.)
+
+---
+
+### D. Visualizing Distributions 2 (boxplots)
+
+9. Make a boxplot of `temp` by `month` using `boxplot_df`.  
+   **Question 9:** What is the **median** for **January** as shown by the boxplot’s center line?
+
+10. Using the same boxplots, read off the medians for **January** and **July** and compute **July – January**.  
+   **Question 10:** What is this **difference of medians**?
+```
+
