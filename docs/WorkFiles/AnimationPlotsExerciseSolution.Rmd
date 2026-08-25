@@ -1,0 +1,290 @@
+---
+title: "Untitled"
+author: "Roy Thomas"
+date: "2025-09-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+title: "Animation Plots – 5-Problem Exercise"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output:
+html\_document:
+df\_print: paged
+toc: true
+toc\_float: true
+----------------
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+> **Instructions**
+>
+> * This set has **5 problems**. Each mirrors an animated example from class and adds **one small extension** to research.
+> * Use built-in datasets where possible (`gapminder`, `economics`, `storms`, etc.).
+> * Where you see **Stretch**, look up the function/argument and implement it.
+> * If you need a hint, see the **commented Instructor solution** chunk below each problem (keep it commented for the student version).
+
+## Packages
+
+```{r}
+# Install (first time only) then load
+# install.packages(c("ggplot2","dplyr","gganimate","gapminder","ggrepel","maps","rnaturalearth","rnaturalearthdata","scales"))
+
+library(ggplot2)
+library(dplyr)
+library(gganimate)
+library(gapminder)
+library(ggrepel)
+library(scales)
+# for Problem 5 (map background)
+library(rnaturalearth)
+library(rnaturalearthdata)
+```
+
+---
+
+## Problem 1 — Animated Scatter (gapminder over time)
+
+Create an **animated scatterplot** of **life expectancy** vs **GDP per capita** from `gapminder`. Animate over `year`.
+
+**Requirements**:
+
+* `x = gdpPercap` (log10 scale), `y = lifeExp`, `size = pop`, `color = continent`.
+* Use `transition_time(year)` and show the current year in the title using `{frame_time}`.
+* Keep points from previous years faintly visible so motion is easier to track.
+
+**Stretch** (research & add):
+
+* Add a subtle trailing effect with `shadow_wake(wake = 0.1)` **or** `shadow_mark(alpha = 0.2)`.
+* Use `view_follow()` so axes track the data without popping.
+
+```{r}
+# Your code here
+
+ p1 <- gapminder %>%
+   ggplot(aes(gdpPercap, lifeExp, size = pop, color = continent)) +
+   geom_point(alpha = 0.8) +
+   scale_x_log10(labels = label_number_si()) +
+   scale_size_area(max_size = 12) +
+   labs(title = "Year: {frame_time}", x = "GDP per capita (log)", y = "Life expectancy") +
+   theme_minimal() +
+   transition_time(year) +
+   shadow_wake(wake = 0.1) +
+   view_follow()
+
+# animate(p1, fps = 20, width = 800, height = 500)
+
+
+```
+
+```{r, eval=FALSE}
+# ---- Instructor solution (commented) ----
+# p1 <- gapminder %>%
+#   ggplot(aes(gdpPercap, lifeExp, size = pop, color = continent)) +
+#   geom_point(alpha = 0.8) +
+#   scale_x_log10(labels = label_number_si()) +
+#   scale_size_area(max_size = 12) +
+#   labs(title = "Year: {frame_time}", x = "GDP per capita (log)", y = "Life expectancy") +
+#   theme_minimal() +
+#   transition_time(year) +
+#   shadow_wake(wake = 0.1) +
+#   view_follow()
+#
+# # animate(p1, fps = 20, width = 800, height = 500)
+```
+
+---
+
+## Problem 2 — Bar Chart Race (Top 10 GDP per capita)
+
+Build a **bar chart race** showing the **top 10 countries by GDP per capita** for each year in `gapminder`.
+
+**Requirements**:
+
+* For each `year`, compute rank by `gdpPercap`, keep top 10.
+* Horizontal bars: `y = rank` (reverse scale so 1 is at top), `x = gdpPercap`, `fill = country`, `group = country`.
+* Left-label countries with `geom_text()` placed at a small negative x; widen limits with `xlim()` so labels fit.
+* Animate with `transition_states(year)`; add `{closest_state}` to the title.
+
+**Stretch** (research & add):
+
+* Smooth transitions with `ease_aes('cubic-in-out')`.
+* Balance slide vs. pause using `transition_states(year, transition_length = ..., state_length = ...)`.
+
+```{r}
+# Your code here
+```
+
+```{r, eval=FALSE}
+# ---- Instructor solution (commented) ----
+# top10 <- gapminder %>%
+#   group_by(year) %>%
+#   arrange(desc(gdpPercap), .by_group = TRUE) %>%
+#   mutate(rank = row_number()) %>%
+#   filter(rank <= 10) %>%
+#   ungroup()
+#
+# p2 <- ggplot(top10, aes(gdpPercap, rank, group = country)) +
+#   geom_col(aes(fill = country)) +
+#   geom_text(aes(x = -500, y = rank, label = country), hjust = 1, size = 12/.pt) +
+#   scale_y_reverse(breaks = 1:10) +
+#   xlim(-4000, max(top10$gdpPercap) * 1.05) +
+#   labs(title = "Year: {closest_state}", x = "GDP per capita", y = NULL) +
+#   theme_minimal() + guides(fill = "none") +
+#   transition_states(year, transition_length = 6, state_length = 3) +
+#   ease_aes('cubic-in-out')
+#
+# # animate(p2, fps = 20, width = 900, height = 520)
+```
+
+---
+
+## Problem 3 — Reveal Line with End Label (economics)
+
+Create an **animated line** of `personal savings rate` from `ggplot2::economics` (column `psavert`). Use `transition_reveal(date)` so the line draws over time.
+
+**Requirements**:
+
+* Draw a line and small points; add an **end label** (the last value) using `geom_text_repel()` positioned slightly to the right.
+* Ensure labels beyond the panel aren’t clipped: use `coord_cartesian(clip = "off")` and add extra right margin.
+
+**Stretch** (research & add):
+
+* Format y-axis as a **percentage** (divide by 100, use `scale_y_continuous(labels = scales::percent)`).
+* Show the current date with `{frame_along}` in the subtitle.
+
+```{r}
+# Your code here
+```
+
+```{r, eval=FALSE}
+# ---- Instructor solution (commented) ----
+# df <- ggplot2::economics %>% mutate(pct = psavert/100)
+# last_row <- tail(df, 1)
+# p3 <- ggplot(df, aes(date, pct)) +
+#   geom_line() +
+#   geom_point(size = 0.8) +
+#   geom_text_repel(
+#     data = last_row,
+#     aes(label = percent(pct, accuracy = 0.1)),
+#     nudge_x = 100, direction = "y", hjust = 0
+#   ) +
+#   coord_cartesian(clip = "off") +
+#   theme(plot.margin = margin(5, 60, 5, 5)) +
+#   scale_y_continuous(labels = percent) +
+#   labs(subtitle = "Date: {frame_along}") +
+#   transition_reveal(date)
+#
+# # animate(p3, fps = 22, width = 900, height = 420)
+```
+
+---
+
+## Problem 4 — Animated Rank Bump Chart (selected countries)
+
+Pick **5–8 countries** from `gapminder` and plot how their **rank by life expectancy** changes over time (a **bump chart**). Animate the lines revealing over `year`.
+
+**Requirements**:
+
+* Compute `rank` by `lifeExp` within each `year`; keep only your selected countries.
+* Plot `x = year`, `y = rank` (use `scale_y_reverse()` so rank 1 is top), `group = country`, `color = country`.
+* Use `transition_reveal(year)` so each country’s rank trace draws over time.
+
+**Stretch** (research & add):
+
+* Add **end labels** to the right with `geom_text_repel()` and widen the right margin.
+* Use a **discrete color palette** that is colorblind-friendly (`scale_color_brewer(palette = "Set2")` or `scale_color_viridis_d()`).
+
+```{r}
+# Your code here
+```
+
+```{r, eval=FALSE}
+# ---- Instructor solution (commented) ----
+# set.seed(1)
+# selected <- sample(unique(gapminder$country), 6)
+# ranks <- gapminder %>%
+#   group_by(year) %>%
+#   arrange(desc(lifeExp), .by_group = TRUE) %>%
+#   mutate(rank = row_number()) %>%
+#   ungroup() %>%
+#   filter(country %in% selected)
+#
+# p4 <- ggplot(ranks, aes(year, rank, color = country)) +
+#   geom_line(linewidth = 1) +
+#   scale_y_reverse() +
+#   labs(y = "Rank (life expectancy)", x = NULL) +
+#   theme_minimal() +
+#   transition_reveal(year)
+#
+# # Optional end labels
+# # last_pts <- ranks %>% group_by(country) %>% slice_max(year, n = 1)
+# # p4 <- p4 + ggrepel::geom_text_repel(
+# #   data = last_pts,
+# #   aes(label = country),
+# #   nudge_x = 2, direction = "y", hjust = 0
+# # ) + coord_cartesian(clip = "off") + theme(plot.margin = margin(5, 60, 5, 5))
+#
+# # animate(p4, fps = 20, width = 900, height = 480)
+```
+
+---
+
+## Problem 5 — Animated Storm Track on a Map (`storms`)
+
+Animate the track of a **single storm** from the `dplyr::storms` dataset on a world map background.
+
+**Requirements**:
+
+* Choose one storm (e.g., `"Katrina"` in 2005) and filter its rows; order by `date`.
+* Plot `lon` vs `lat` as points/line; add a light world map background from `rnaturalearth` (coastlines).
+* Animate over `date` using `transition_time(date)` or `transition_reveal(date)` so the path draws over time.
+
+**Stretch** (research & add):
+
+* Add `shadow_mark(alpha = 0.3)` so prior positions remain faint.
+* Encode **wind speed** as point size or color and add a titled legend.
+
+```{r}
+# Your code here
+```
+
+```{r, eval=FALSE}
+# ---- Instructor solution (commented) ----
+# # World background
+# world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
+# library(dplyr)
+# data("storms", package = "dplyr")
+# trk <- storms %>% filter(name == "Katrina", year == 2005) %>% arrange(date)
+#
+# p5 <- ggplot() +
+#   geom_sf(data = world, fill = "grey95", color = "grey80") +
+#   geom_path(data = trk, aes(x = long, y = lat, group = 1), color = "steelblue") +
+#   geom_point(data = trk, aes(x = long, y = lat, size = wind, color = wind), alpha = 0.8) +
+#   scale_size(range = c(1, 5)) +
+#   scale_color_viridis_c(option = "C") +
+#   coord_sf(xlim = range(trk$long) + c(-5, 5), ylim = range(trk$lat) + c(-5, 5), expand = FALSE) +
+#   labs(title = "Katrina (2005) – {frame_time}", x = NULL, y = NULL, size = "Wind", color = "Wind") +
+#   theme_minimal() +
+#   transition_time(trk$date) +
+#   shadow_mark(alpha = 0.3)
+#
+# # animate(p5, fps = 18, width = 900, height = 520)
+```
+
+---
+
+### Notes & Tips
+
+* `transition_time()` works with continuous time; `transition_states()` with discrete categories; `transition_reveal()` progressively draws along an ordered variable.
+* For titles that change over frames, use `{frame_time}`, `{closest_state}`, or `{frame_along}` depending on the transition.
+* Use `animate(..., fps = , width = , height = )` to export; save with `anim_save("file.gif")`.
+* For long labels beyond the panel, combine `coord_cartesian(clip = "off")` with added right plot margin via `theme(plot.margin = margin(...))`.
