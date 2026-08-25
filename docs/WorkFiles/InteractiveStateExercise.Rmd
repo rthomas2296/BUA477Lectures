@@ -1,0 +1,97 @@
+---
+title: "Untitled"
+author: "Roy Thomas"
+date: "2025-01-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Load necessary libraries
+library(tidyverse)
+library(ggiraph)
+
+# Example dataset with population data for US states
+state_pop <- tibble(
+  name = c("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware"),
+  population = c(4903185, 731545, 7278717, 3017825, 39512223, 5758736, 3565287, 973764) # Example data
+)
+US_states <- readRDS(url("https://wilkelab.org/SDS375/datasets/US_states.rds"))
+US_states
+
+
+
+
+
+#########################
+US_map <- US_states %>%
+  mutate( # JavaScript call to open website 
+    onclick = glue::glue(
+'window.open(
+"https://en.wikipedia.org/wiki/{name}")')
+  ) %>%
+  ggplot() +
+  geom_sf_interactive(
+    aes(
+      data_id = name, tooltip = name,
+      onclick = onclick
+    )
+  ) +
+  theme_void()
+girafe(
+  ggobj = US_map,
+  width_svg = 6,
+  height_svg = 6*0.618
+)
+
+###################################
+
+#Modify the code above to show the name of the state, the abbreviation 
+#of the state, and the population.
+
+#Use this hint of how to concatenate strings:
+#tooltip = glue::glue("{name}: {scales::comma(population)}")
+
+
+
+
+
+
+
+# Join population data with spatial data
+US_map_pop <- US_states  |> 
+  left_join(state_pop, by = "name")  |> 
+  mutate(
+    # Format tooltip with state name and population
+    tooltip = glue::glue("{name}: {scales::comma(population)}"),
+    onclick = glue::glue('window.open("https://en.wikipedia.org/wiki/{name}")')
+  )  |> 
+  ggplot() +
+  geom_sf_interactive(
+    aes(
+      fill = population, # Color by population
+      data_id = name, tooltip = tooltip,
+      onclick = onclick
+    ),
+    color = "white", size = 0.2
+  ) +
+  scale_fill_viridis_c(
+    na.value = "gray80",
+    name = "Population",
+    label = scales::comma
+  ) +
+  theme_void() +
+  theme(legend.position = "bottom")
+
+# Create interactive plot
+girafe(
+  ggobj = US_map_pop,
+  width_svg = 8,
+  height_svg = 8 * 0.618
+)
+
+```
+
