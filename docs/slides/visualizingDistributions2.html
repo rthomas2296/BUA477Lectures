@@ -3,7 +3,6 @@
   <head>
     <title>Visualizing distributions 2</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Roy Thomas" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="Wilke-slides-theme.css" type="text/css" />
@@ -16,10 +15,10 @@ class: center, middle, title-slide
 # Visualizing distributions 2
 ]
 .author[
-### Roy Thomas
+### true
 ]
 .date[
-### last updated: 2025-01-07
+### last updated: 2026-08-25
 ]
 
 ---
@@ -132,6 +131,17 @@ How can we compare distributions across months?
 ## A bad idea: Many overlapping density plots
 
 .center[
+
+```
+Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+ℹ The deprecated feature was likely used in the cowplot package.
+  Please report the issue at &lt;https://github.com/wilkelab/cowplot/issues&gt;.
+This warning is displayed once per session.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
+```
+
 ![](visualizingDistributions2_files/figure-html/temps_densities_overlapping-1.svg)&lt;!-- --&gt;
 ]
 
@@ -472,10 +482,10 @@ ggplot(lincoln_temps, aes(x = mean_temp, y = month_long)) +
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "github",
-"highlightLines": true,
-"slideNumberFormat": ""
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "slideNumberFormat": ""
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

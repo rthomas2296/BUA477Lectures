@@ -3,7 +3,6 @@
   <head>
     <title>Getting things into the right order</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Roy Thomas" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="Wilke-slides-theme.css" type="text/css" />
@@ -16,10 +15,10 @@ class: center, middle, title-slide
 # Getting things into the right order
 ]
 .author[
-### Roy Thomas
+### true
 ]
 .date[
-### last updated: 2025-01-07
+### last updated: 2026-08-24
 ]
 
 ---
@@ -560,13 +559,7 @@ class: middle, center
 
 ``` r
 library(gapminder)
-```
 
-```
-Warning: package 'gapminder' was built under R version 4.3.3
-```
-
-``` r
 gapminder
 ```
 
@@ -882,13 +875,7 @@ Dataset: Flights out of New York City in 2013
 
 ``` r
 library(nycflights13)
-```
 
-```
-Warning: package 'nycflights13' was built under R version 4.3.3
-```
-
-``` r
 flight_data &lt;- flights |&gt; # take data on individual flights
   left_join(airlines) |&gt;  # add in full-length airline names
   select(name, carrier, flight, year, month, day, origin, dest) # pick columns of interest
@@ -1226,10 +1213,10 @@ For more options, check out the [reference documentation](https://forcats.tidyve
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "github",
-"highlightLines": true,
-"slideNumberFormat": ""
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "slideNumberFormat": ""
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

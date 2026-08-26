@@ -3,7 +3,6 @@
   <head>
     <title>Visualizing trends</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Roy Thomas" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="Wilke-slides-theme.css" type="text/css" />
@@ -16,10 +15,10 @@ class: center, middle, title-slide
 # Visualizing trends
 ]
 .author[
-### Roy Thomas
+### true
 ]
 .date[
-### last updated: 2025-01-07
+### last updated: 2026-08-25
 ]
 
 ---
@@ -197,16 +196,6 @@ Figure redrawn after [Claus O. Wilke. Fundamentals of Data Visualization. O'Reil
 ## Exponential trends are linear trends on a log scale
 
 .center[
-
-```
-Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
-3.5.0.
-ℹ Please use the `legend.position.inside` argument of `theme()` instead.
-This warning is displayed once every 8 hours.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-generated.
-```
-
 ![](visualizing-trends_files/figure-html/biorxiv-nofit-1.svg)&lt;!-- --&gt;
 ]
 
@@ -865,10 +854,10 @@ Smoothing lines are particularly unreliable near their endpoints
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "github",
-"highlightLines": true,
-"slideNumberFormat": ""
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "slideNumberFormat": ""
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

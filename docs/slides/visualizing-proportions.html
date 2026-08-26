@@ -3,7 +3,6 @@
   <head>
     <title>Visualizing proportions</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Roy Thomas" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="Wilke-slides-theme.css" type="text/css" />
@@ -16,10 +15,10 @@ class: center, middle, title-slide
 # Visualizing proportions
 ]
 .author[
-### Roy Thomas
+### true
 ]
 .date[
-### last updated: 2025-01-07
+### last updated: 2026-08-25
 ]
 
 ---
@@ -131,9 +130,14 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 .small-font.center[
 
 ```
+Warning in geom_col(position = "stack", width = 1, color = "#FFFFFF", size =
+0.75, : Ignoring unknown parameters: `size`
+```
+
+```
 Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.
-This warning is displayed once every 8 hours.
+This warning is displayed once per session.
 Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 generated.
 ```
@@ -989,10 +993,10 @@ ggplot(pie_data) +
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "github",
-"highlightLines": true,
-"slideNumberFormat": ""
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "slideNumberFormat": ""
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
