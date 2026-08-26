@@ -103,9 +103,12 @@ knitr::kable(
 
 ## Check versions of R and RStudio:
 
-- Launch RStudio - RStudio Version: Go to Help --> About RStudio
-- Latest RStudio Version: 
-- Latest R Version: 4.5.1
+To check version of RStudio:
+- Launch RStudio - Go to Help --> About RStudio
+
+To check version of R
+- Just the version of R that is reported at the top of the console (bottom right pane)
+
 
 ---
 ## Steps to test...
