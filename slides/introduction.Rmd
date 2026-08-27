@@ -107,7 +107,7 @@ To check version of RStudio:
 - Launch RStudio - Go to Help --> About RStudio
 
 To check version of R
-- Just the version of R that is reported at the top of the console (bottom right pane)
+- Check the version of R that is reported at the top of the console (bottom right pane)
 
 
 ---
