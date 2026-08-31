@@ -28,9 +28,7 @@ update_geom_defaults("point", list(size = 2))
 .tiny-font[
 ```{r}
 library(tidyverse)  # This library has a LOT OF functions that we use
-?starwars
 starwars
-View(starwars)
 
 ```
 ]
@@ -147,7 +145,6 @@ To identify the location or the number of NAs we can leverage the which() and su
 ---
 
 ## OYOTs (On Your Own Tasks)
-#### https://thomasadventure.blog/posts/r-count-na/ (also shows heatmap of na’s)
 #### Outliers: https://statsandr.com/blog/outliers-detection-in-r/
 
 ---

@@ -56,9 +56,22 @@ Table: A cars dataset
 |Merc 230          | 22.8|   4| 140.8|  95| 3.92| 3.150| 22.90|  1|  0|    4|    2|
 |Merc 280          | 19.2|   6| 167.6| 123| 3.92| 3.440| 18.30|  1|  0|    4|    4|
 ---
+On the next screen, you are going to see four map projections — different ways of flattening a sphere onto a plane, each trading off a different kind of distortion.
 
+Cartesian -- Longitude and latitude plotted directly as x/y on a rectangular grid. Simple and easy to compute, but badly stretches areas near the poles (Greenland looks enormous).
+
+Interrupted Goode homolosine — An equal-area projection that's "interrupted" (cut into lobes) over the oceans so landmasses keep accurate size and shape. Great for showing land-based data; useless for showing oceans or continuous routes.
+
+Robinson — A compromise projection: neither equal-area nor conformal, tuned to just look right. Was the National Geographic standard from 1988–1998.
+
+Winkel tripel — Another compromise, mathematically averaging two different projections. Minimizes area, direction, and distance distortion simultaneously ("tripel" = three). Replaced Robinson as National Geographic's standard in 1998.
+
+The main lesson: no flat map can preserve area, shape, distance, and direction at once. You pick which error you can live with.
+
+---
 
 &lt;img src = "https://clauswilke.com/dataviz/coordinate_systems_axes_files/figure-html/worldmap-four-projections-1.png", width = 30%, style = "position:absolute; top: 12%; left: 25%; box-shadow: 3px 5px 3px 1px #00000080;"&gt;&lt;/img&gt;
+
 
 --
 
@@ -287,24 +300,24 @@ You can have one to six hash tags
 .pull-left[
 **Input:**
 ```
-#Heading1
-##Heading2
-###Heading3
-####Heading4
-#####Heading5
-######Heading6
+# Heading1
+## Heading2
+### Heading3
+#### Heading4
+##### Heading5
+###### Heading6
 ```
 ]
 
 --
 .pull-right[
 **Output:**
-#Heading1
-##Heading2
-###Heading3
-####Heading4
-#####Heading5
-######Heading6
+# Heading1
+## Heading2
+### Heading3
+#### Heading4
+##### Heading5
+###### Heading6
 ]
 ---
 
@@ -378,7 +391,7 @@ rnorm(5) # create 5 normal variates
 ```
 
 ```
-[1]  0.02083923 -0.22075167 -0.83400197  0.06019514 -0.15193960
+[1] 1.5491233 0.4060659 0.1348321 1.4270680 2.4171401
 ```
 ]
 

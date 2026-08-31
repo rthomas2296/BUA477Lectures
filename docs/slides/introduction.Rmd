@@ -42,9 +42,22 @@ knitr::kable(
 )
 ```
 ---
+On the next screen, you are going to see four map projections — different ways of flattening a sphere onto a plane, each trading off a different kind of distortion.
 
+Cartesian -- Longitude and latitude plotted directly as x/y on a rectangular grid. Simple and easy to compute, but badly stretches areas near the poles (Greenland looks enormous).
+
+Interrupted Goode homolosine — An equal-area projection that's "interrupted" (cut into lobes) over the oceans so landmasses keep accurate size and shape. Great for showing land-based data; useless for showing oceans or continuous routes.
+
+Robinson — A compromise projection: neither equal-area nor conformal, tuned to just look right. Was the National Geographic standard from 1988–1998.
+
+Winkel tripel — Another compromise, mathematically averaging two different projections. Minimizes area, direction, and distance distortion simultaneously ("tripel" = three). Replaced Robinson as National Geographic's standard in 1998.
+
+The main lesson: no flat map can preserve area, shape, distance, and direction at once. You pick which error you can live with.
+
+---
 
 <img src = "https://clauswilke.com/dataviz/coordinate_systems_axes_files/figure-html/worldmap-four-projections-1.png", width = 30%, style = "position:absolute; top: 12%; left: 25%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
 
 --
 
@@ -263,24 +276,24 @@ You can have one to six hash tags
 .pull-left[
 **Input:**
 ```
-#Heading1
-##Heading2
-###Heading3
-####Heading4
-#####Heading5
-######Heading6
+# Heading1
+## Heading2
+### Heading3
+#### Heading4
+##### Heading5
+###### Heading6
 ```
 ]
 
 --
 .pull-right[
 **Output:**
-#Heading1
-##Heading2
-###Heading3
-####Heading4
-#####Heading5
-######Heading6
+# Heading1
+## Heading2
+### Heading3
+#### Heading4
+##### Heading5
+###### Heading6
 ]
 ---
 
