@@ -123,7 +123,7 @@ ggplot(boxoffice, aes(x = fct_reorder(title, desc(rank)), y = amount)) +
 ## Avoid rotated axis labels
 
 .center[
-```{r boxoffice-rot-axis-tick-labels, echo = FALSE, fig.width = 6, fig.asp = .85, dev = "svg"}
+```{r boxoffice-rot-axis-tick-labels, echo = FALSE, warning = FALSE, message = FALSE, fig.width = 6, fig.asp = .85, dev = "svg"}
 p_box_axrot <- 
   ggplot(boxoffice, aes(x = fct_reorder(title, rank), y = amount)) +
     geom_col(fill = "#56B4E9", alpha = 0.9) +
